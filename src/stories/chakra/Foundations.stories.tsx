@@ -8,10 +8,19 @@ import {
   LightMode,
   SimpleGrid,
   Stack,
+  Table,
+  Tbody,
+  Td,
   Text,
+  Th,
+  Thead,
+  Tr,
 } from '@chakra-ui/react';
 
+import { theme } from '../../theme';
 import { colors } from '../../theme/foundations/colors';
+import { fonts } from '../../theme/foundations/fonts';
+import { fontWeights } from '../../theme/foundations/fontWeights';
 import { radii } from '../../theme/foundations/radii';
 import { semanticTokens } from '../../theme/foundations/semanticTokens';
 
@@ -20,9 +29,12 @@ const colorTokens = Object.entries(semanticTokens.colors).filter(
 );
 
 const fontSizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'] as const;
-const fontFamilies = ['body', 'heading', 'serif'] as const;
-const fontWeights = [400, 500, 600, 700] as const;
-const radiusTokens = ['none', 'md', 'subtle', 'full'] as const;
+const zeroRadii = Object.entries(radii).filter(([, value]) => value === '0');
+const shapedRadii = Object.entries(radii).filter(([, value]) => value !== '0');
+const typefaces = [
+  { name: 'body / mono', family: 'body' },
+  { name: 'heading', family: 'heading' },
+] as const;
 
 function ColorColumn({ mode }: { mode: 'light' | 'dark' }) {
   const Mode = mode === 'dark' ? DarkMode : LightMode;
@@ -93,25 +105,52 @@ export const BrandScale: Story = {
 export const Typography: Story = {
   render: () => (
     <Stack spacing={10}>
-      {fontFamilies.map((family) => (
-        <Stack key={family} spacing={1}>
-          <Text fontSize="sm" color="muted-foreground">
-            {family}
-          </Text>
+      <Table variant="simple" size="sm">
+        <Thead>
+          <Tr>
+            <Th textTransform="none" letterSpacing="normal">
+              size
+            </Th>
+            <Th textTransform="none" letterSpacing="normal">
+              font-size
+            </Th>
+            <Th textTransform="none" letterSpacing="normal">
+              line-height
+            </Th>
+            {typefaces.map((face) => (
+              <Th key={face.name} textTransform="none" letterSpacing="normal" fontWeight="normal">
+                {face.name}
+                <Text fontSize="xs" color="muted-foreground" fontWeight="normal">
+                  {fonts[face.family]}
+                </Text>
+              </Th>
+            ))}
+          </Tr>
+        </Thead>
+        <Tbody>
           {fontSizes.map((size) => (
-            <Text key={size} fontFamily={family} fontSize={size} color="foreground">
-              {size}
-            </Text>
+            <Tr key={size}>
+              <Td verticalAlign="baseline">{size}</Td>
+              <Td verticalAlign="baseline">{String(theme.fontSizes[size])}</Td>
+              <Td verticalAlign="baseline">{String(theme.lineHeights.base)}</Td>
+              {typefaces.map((face) => (
+                <Td key={face.name} verticalAlign="baseline">
+                  <Text fontFamily={face.family} fontSize={size} lineHeight="base">
+                    {size}
+                  </Text>
+                </Td>
+              ))}
+            </Tr>
           ))}
-        </Stack>
-      ))}
+        </Tbody>
+      </Table>
       <Stack spacing={2}>
         <Text fontSize="sm" color="muted-foreground">
           weights
         </Text>
-        {fontWeights.map((weight) => (
-          <Text key={weight} fontFamily="body" fontSize="2xl" fontWeight={weight}>
-            {weight}
+        {Object.entries(fontWeights).map(([name, value]) => (
+          <Text key={name} fontFamily="body" fontSize="2xl" fontWeight={name}>
+            {name} {value}
           </Text>
         ))}
       </Stack>
@@ -121,9 +160,18 @@ export const Typography: Story = {
 
 export const Radii: Story = {
   render: () => (
-    <HStack spacing={6} align="start">
-      {radiusTokens.map((token) => (
-        <Stack key={token} spacing={2} align="center">
+    <Stack spacing={8} align="start">
+      <Stack spacing={2} align="start">
+        <Box boxSize="20" bg="muted" borderWidth="1px" borderColor="border" borderRadius="none" />
+        <Text fontSize="sm" whiteSpace="nowrap">
+          {zeroRadii.map(([name]) => name).join(' ')}
+        </Text>
+        <Text fontSize="xs" color="muted-foreground">
+          0
+        </Text>
+      </Stack>
+      {shapedRadii.map(([token, value]) => (
+        <Stack key={token} spacing={2} align="start">
           <Box
             boxSize="20"
             bg="muted"
@@ -133,11 +181,11 @@ export const Radii: Story = {
           />
           <Text fontSize="sm">{token}</Text>
           <Text fontSize="xs" color="muted-foreground">
-            {radii[token]}
+            {value}
           </Text>
         </Stack>
       ))}
-    </HStack>
+    </Stack>
   ),
 };
 
@@ -146,7 +194,7 @@ export const FocusRing: Story = {
   render: () => (
     <Stack spacing={4} align="start" maxW="xs">
       <Button boxShadow="outline">Button</Button>
-      <Input defaultValue="Input" borderColor="ring" boxShadow="outline" />
+      <Input defaultValue="Input" boxShadow="outline" />
     </Stack>
   ),
 };
