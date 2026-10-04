@@ -35,7 +35,7 @@ const closeButton: ComponentStyleConfig = {
   sizes: {
     sm: { boxSize: '32px', fontSize: '16px' },
     md: { boxSize: '36px', fontSize: '16px' },
-    lg: { boxSize: '40px', fontSize: '20px' },
+    lg: { boxSize: '40px', fontSize: '16px' },
   },
   defaultProps: {
     size: 'md',

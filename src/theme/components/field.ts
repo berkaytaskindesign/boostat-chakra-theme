@@ -15,7 +15,7 @@ export const fieldBase: SystemStyleObject = {
   borderRadius: 'none',
   outline: 0,
   _placeholder: { color: 'muted-foreground' },
-  transitionProperty: 'border-color, box-shadow',
+  transitionProperty: 'border-color',
   transitionDuration: '150ms',
   _disabled: {
     opacity: 0.5,
@@ -26,7 +26,7 @@ export const fieldBase: SystemStyleObject = {
 
 const restBorder = { borderColor: 'border', boxShadow: 'none' };
 const filledRest = { bg: 'muted', borderColor: 'transparent', boxShadow: 'none' };
-const focusRing = { boxShadow: 'outline' };
+const focusStroke = { borderColor: 'focus-border', boxShadow: 'none' };
 
 export const fieldVariants = {
   outline: {
@@ -34,7 +34,7 @@ export const fieldVariants = {
     borderColor: 'border',
     bg: 'transparent',
     _hover: { borderColor: 'border' },
-    _focusVisible: { ...restBorder, ...focusRing },
+    _focusVisible: focusStroke,
     _invalid: restBorder,
     _readOnly: { boxShadow: 'none', _focusVisible: restBorder },
     _disabled: {
@@ -49,7 +49,7 @@ export const fieldVariants = {
     borderColor: 'transparent',
     bg: 'muted',
     _hover: { bg: 'muted', borderColor: 'transparent' },
-    _focusVisible: { ...filledRest, ...focusRing },
+    _focusVisible: { ...filledRest, ...focusStroke },
     _invalid: filledRest,
     _readOnly: { boxShadow: 'none', _focusVisible: filledRest },
     _disabled: {
@@ -66,7 +66,7 @@ export const fieldVariants = {
     px: 0,
     bg: 'transparent',
     _hover: { borderColor: 'border' },
-    _focusVisible: { ...restBorder, ...focusRing },
+    _focusVisible: focusStroke,
     _invalid: restBorder,
     _readOnly: { boxShadow: 'none', _focusVisible: restBorder },
     _disabled: {

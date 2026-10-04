@@ -17,9 +17,23 @@ function numberFieldSize(size: FieldSize) {
 }
 
 const stepperBorder = { borderStartColor: 'border' };
+const chevron = {
+  content: '""',
+  width: '5px',
+  height: '5px',
+  borderRight: '1px solid',
+  borderBottom: '1px solid',
+  borderColor: 'currentColor',
+};
 const stepperIcon = {
-  fontSize: '12px',
-  '& svg': { width: '12px', height: '12px' },
+  '& svg': { display: 'none' },
+  _before: chevron,
+  _first: {
+    _before: { transform: 'translateY(1px) rotate(-135deg)' },
+  },
+  _last: {
+    _before: { transform: 'translateY(-1px) rotate(45deg)' },
+  },
 };
 
 const numberInput = defineMultiStyleConfig({
