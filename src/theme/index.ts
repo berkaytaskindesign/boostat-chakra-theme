@@ -4,6 +4,7 @@ import { extendTheme, withDefaultColorScheme, type ThemeConfig } from '@chakra-u
 
 import { colors } from './foundations/colors';
 import { fonts } from './foundations/fonts';
+import { fontWeights } from './foundations/fontWeights';
 import { radii } from './foundations/radii';
 import { semanticTokens } from './foundations/semanticTokens';
 import { shadows } from './foundations/shadows';
@@ -20,6 +21,7 @@ export const theme = extendTheme(
     colors,
     semanticTokens,
     fonts,
+    fontWeights,
     radii,
     shadows,
     styles,
