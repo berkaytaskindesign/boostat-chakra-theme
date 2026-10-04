@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button, HStack, Icon, IconButton, Stack, Text, type IconProps } from '@chakra-ui/react';
+import { Button, HStack, Icon, Stack, Text, type IconProps } from '@chakra-ui/react';
 
 function PlusIcon(props: IconProps) {
   return (
@@ -52,11 +52,12 @@ export const States: Story = {
           <Button variant={variant} data-hover>
             Hover
           </Button>
-          <Button variant={variant} data-active>
+          <Button
+            variant={variant}
+            data-active
+            {...(variant === 'link' ? { 'data-hover': true } : {})}
+          >
             Active
-          </Button>
-          <Button variant={variant} data-focus-visible>
-            Focus
           </Button>
           <Button variant={variant} isDisabled>
             Disabled
@@ -72,28 +73,10 @@ export const States: Story = {
 
 export const Icons: Story = {
   render: () => (
-    <Stack spacing={6}>
-      <HStack spacing={3}>
-        <Button leftIcon={<PlusIcon />}>Left</Button>
-        <Button rightIcon={<PlusIcon />}>Right</Button>
-      </HStack>
-      {variants.map((variant) => (
-        <HStack key={variant} spacing={3} align="center">
-          <Text w="28" fontSize="sm" color="muted-foreground">
-            {variant}
-          </Text>
-          {sizes.map((size) => (
-            <IconButton
-              key={size}
-              aria-label={`${variant} ${size}`}
-              icon={<PlusIcon />}
-              variant={variant}
-              size={size}
-            />
-          ))}
-        </HStack>
-      ))}
-    </Stack>
+    <HStack spacing={3}>
+      <Button leftIcon={<PlusIcon />}>Left</Button>
+      <Button rightIcon={<PlusIcon />}>Right</Button>
+    </HStack>
   ),
 };
 
