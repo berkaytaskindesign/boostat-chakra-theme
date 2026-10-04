@@ -193,8 +193,18 @@ export const FocusRing: Story = {
   name: 'Focus ring',
   render: () => (
     <Stack spacing={4} align="start" maxW="xs">
-      <Button boxShadow="outline">Button</Button>
-      <Input defaultValue="Input" boxShadow="outline" />
+      <Stack spacing={2} align="start">
+        <Text fontSize="sm" color="muted-foreground">
+          Button
+        </Text>
+        <Button boxShadow="outline">Button</Button>
+      </Stack>
+      <Stack spacing={2} align="start" w="full">
+        <Text fontSize="sm" color="muted-foreground">
+          Field focus
+        </Text>
+        <Input defaultValue="Input" data-focus-visible />
+      </Stack>
     </Stack>
   ),
 };

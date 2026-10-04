@@ -1,12 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
-  Input,
-  Stack,
-} from '@chakra-ui/react';
+import { FormControl, FormErrorMessage, FormHelperText, FormLabel, Input, Stack } from '@chakra-ui/react';
 
 const meta = {
   title: 'Chakra v2/Form/Form Control',
@@ -16,23 +9,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const WithHelperText: Story = {
+export const States: Story = {
   render: () => (
-    <FormControl maxW="320px">
-      <FormLabel>Email</FormLabel>
-      <Input type="email" />
-      <FormHelperText>We will never share your email.</FormHelperText>
-    </FormControl>
-  ),
-};
-
-export const Invalid: Story = {
-  render: () => (
-    <Stack>
-      <FormControl isInvalid maxW="320px">
+    <Stack spacing={6} maxW="xs">
+      <FormControl>
+        <FormLabel>Email</FormLabel>
+        <Input type="email" placeholder="ada@midday.ai" />
+        <FormHelperText>We will never share your email.</FormHelperText>
+      </FormControl>
+      <FormControl isRequired>
+        <FormLabel>Email</FormLabel>
+        <Input type="email" placeholder="ada@midday.ai" />
+      </FormControl>
+      <FormControl isInvalid>
         <FormLabel>Email</FormLabel>
         <Input type="email" defaultValue="not-an-email" />
         <FormErrorMessage>Email is invalid.</FormErrorMessage>
+      </FormControl>
+      <FormControl isDisabled>
+        <FormLabel>Email</FormLabel>
+        <Input type="email" placeholder="ada@midday.ai" />
+        <FormHelperText>Disabled helper.</FormHelperText>
       </FormControl>
     </Stack>
   ),

@@ -14,6 +14,7 @@ alwaysApply: true
 - Headings use Hedvig Letters Serif. Body, UI, and mono stay Hedvig Letters Sans.
 - Radii scale is all zero; use full only for avatar/switch/radio/slider thumb/pills and subtle only for modal/drawer.
 - Interaction states: hover = 90% bg via color-mix, active = 80%, disabled = opacity 0.5 with no hover/active. Ghost/outline hover uses accent.
+- Field focus (inputs, selects, textareas, and future form controls) uses the same offset outline ring as buttons. The field border stays at rest.
 - Ignore colorScheme in component styles; color comes from variants and semantic tokens only.
 - Keep Chakra's variant names; add new variants rather than renaming.
 - Check whether a component is multipart before overriding it. If it is, use `createMultiStyleConfigHelpers` with its parts.
