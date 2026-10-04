@@ -1,10 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  RangeSlider,
-  RangeSliderFilledTrack,
-  RangeSliderThumb,
-  RangeSliderTrack,
-} from '@chakra-ui/react';
+import { RangeSlider, RangeSliderFilledTrack, RangeSliderThumb, RangeSliderTrack } from '@chakra-ui/react';
 
 const meta = {
   title: 'Chakra v2/Form/Range Slider',
@@ -16,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <RangeSlider defaultValue={[10, 30]} aria-label={['min', 'max']} maxW="320px">
+    <RangeSlider defaultValue={[20, 60]} aria-label={['min', 'max']} maxW="320px">
       <RangeSliderTrack>
         <RangeSliderFilledTrack />
       </RangeSliderTrack>

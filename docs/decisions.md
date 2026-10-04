@@ -7,3 +7,7 @@ Chakra's variant names stay: solid, outline, ghost, and link. Secondary and dest
 ## Form inputs
 
 Field focus changes the border to `focus-border` and removes the box shadow, with no layout shift. Invalid does not change the field border. Only the label and error message turn destructive, matching Midday. The required indicator stays foreground. Sizes match Button. Fields have no hover color change. The Select open list is the native menu and cannot be themed; a Midday-style dropdown would need a custom component, to decide later.
+
+## Selection controls
+
+Checkbox uses Midday’s soft fill: `control-checked` with the border left at `border` and a foreground check. `control-checked` aliases accent. `control-off` is the switch’s unchecked track. Checkbox, radio, switch, and the slider thumb use the offset outline ring. Invalid does not recolor the control; the label and error message do. Each control has Midday’s single size: checkbox and radio are 16px, the switch is 44×24, and the slider track is 8px with a 20px square thumb. The check is Radix’s CheckIcon; indeterminate uses MinusIcon.

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Radio, RadioGroup, Stack } from '@chakra-ui/react';
+import { FormControl, FormErrorMessage, FormLabel, Radio, RadioGroup, Stack } from '@chakra-ui/react';
 
 const meta = {
   title: 'Chakra v2/Form/Radio',
@@ -10,20 +10,40 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function RadioDemo() {
-  const [value, setValue] = useState('1');
+export const States: Story = {
+  render: () => (
+    <Stack>
+      <Radio>Unchecked</Radio>
+      <Radio defaultChecked>Checked</Radio>
+      <Radio isDisabled>Disabled</Radio>
+      <Radio isDisabled defaultChecked>
+        Disabled checked
+      </Radio>
+      <Radio data-focus-visible defaultChecked>
+        Focus
+      </Radio>
+      <FormControl isInvalid>
+        <FormLabel>Plan</FormLabel>
+        <Radio>Monthly</Radio>
+        <FormErrorMessage>Pick a plan.</FormErrorMessage>
+      </FormControl>
+    </Stack>
+  ),
+};
+
+function GroupDemo() {
+  const [value, setValue] = useState('a');
 
   return (
     <RadioGroup onChange={setValue} value={value}>
       <Stack>
-        <Radio value="1">First</Radio>
-        <Radio value="2">Second</Radio>
-        <Radio value="3">Third</Radio>
+        <Radio value="a">Alpha</Radio>
+        <Radio value="b">Beta</Radio>
       </Stack>
     </RadioGroup>
   );
 }
 
-export const Default: Story = {
-  render: () => <RadioDemo />,
+export const Group: Story = {
+  render: () => <GroupDemo />,
 };

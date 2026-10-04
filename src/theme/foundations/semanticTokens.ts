@@ -28,6 +28,8 @@ export const semanticTokens = {
     input: token('hsl(240, 5.9%, 90%)', 'hsl(0, 0%, 11%)'),
     ring: token('hsl(240, 5.9%, 10%)', 'hsl(240, 4.9%, 83.9%)'),
     'focus-border': alias('foreground'),
+    'control-checked': alias('accent'),
+    'control-off': token('hsl(0, 0%, 88%)', 'hsl(0, 0%, 40%)'),
     destructive: token('hsl(0, 84.2%, 45%)', 'hsl(359, 100%, 46%)'),
     'destructive-foreground': token('hsl(0, 0%, 98%)', 'hsl(0, 0%, 100%)'),
     'chakra-body-bg': alias('background'),

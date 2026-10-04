@@ -79,14 +79,3 @@ export const Icons: Story = {
     </HStack>
   ),
 };
-
-export const LegacyColorScheme: Story = {
-  name: 'Legacy colorScheme',
-  render: () => (
-    <HStack spacing={3}>
-      <Button colorScheme="blue">Blue</Button>
-      <Button colorScheme="green">Green</Button>
-      <Button colorScheme="red">Red</Button>
-    </HStack>
-  ),
-};
