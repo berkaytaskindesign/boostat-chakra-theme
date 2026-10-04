@@ -20,6 +20,37 @@ export default defineConfig([globalIgnores(['dist', 'reference']), {
     globals: globals.browser,
   },
 }, {
+  files: ['src/**/*.{ts,tsx}'],
+  ignores: ['src/icons/**'],
+  rules: {
+    'no-restricted-imports': ['error', {
+      paths: [
+        {
+          name: '@carbon/icons-react',
+          message: 'Import icons from src/icons.',
+        },
+        {
+          name: '@chakra-ui/icons',
+          message: 'Do not use @chakra-ui/icons. Import icons from src/icons.',
+        },
+        {
+          name: 'lucide-react',
+          message: 'Import icons from src/icons.',
+        },
+        {
+          name: '@radix-ui/react-icons',
+          message: 'Import icons from src/icons.',
+        },
+      ],
+      patterns: [
+        {
+          group: ['react-icons', 'react-icons/*', '@heroicons/*'],
+          message: 'Import icons from src/icons.',
+        },
+      ],
+    }],
+  },
+}, {
   files: ['src/stories/**/*.{ts,tsx}', 'src/components/**/*.{ts,tsx}'],
   ignores: [
     'src/components/accordionIcon.tsx',
@@ -70,11 +101,29 @@ export default defineConfig([globalIgnores(['dist', 'reference']), {
           name: '@chakra-ui/icons',
           message: 'Do not use @chakra-ui/icons. Import icons from src/icons and wrapped components from src/components.',
         },
+        {
+          name: '@carbon/icons-react',
+          message: 'Import icons from src/icons.',
+        },
+        {
+          name: 'lucide-react',
+          message: 'Import icons from src/icons.',
+        },
+        {
+          name: '@radix-ui/react-icons',
+          message: 'Import icons from src/icons.',
+        },
+      ],
+      patterns: [
+        {
+          group: ['react-icons', 'react-icons/*', '@heroicons/*'],
+          message: 'Import icons from src/icons.',
+        },
       ],
     }],
   },
 }, {
-  files: ['src/components/useToast.tsx'],
+  files: ['src/components/useToast.tsx', 'src/icons/index.tsx'],
   rules: {
     'react-refresh/only-export-components': 'off',
   },

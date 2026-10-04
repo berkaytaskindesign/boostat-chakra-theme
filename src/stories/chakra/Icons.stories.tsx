@@ -59,7 +59,7 @@ import {
   TagCloseButton,
   useToast,
 } from '../../components';
-import { Icons, type IconName } from '../../icons';
+import { carbonIconNames, Icons, type IconName } from '../../icons';
 
 const names = Object.keys(Icons) as IconName[];
 const sizes = ['icon-sm', 'icon-md', 'icon-lg'] as const;
@@ -79,10 +79,13 @@ export const Gallery: Story = {
 function IconGallery() {
   const [query, setQuery] = useState('');
   const [copied, setCopied] = useState<IconName | null>(null);
-  const visible = useMemo(
-    () => names.filter((name) => name.toLowerCase().includes(query.trim().toLowerCase())),
-    [query],
-  );
+  const visible = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return names.filter(
+      (name) =>
+        name.toLowerCase().includes(q) || carbonIconNames[name].toLowerCase().includes(q),
+    );
+  }, [query]);
 
   return (
     <Stack spacing={8}>
@@ -121,7 +124,7 @@ function IconGallery() {
           >
             <Icon as={Icons[name]} boxSize="icon-md" />
             <Text fontSize="xs" color="muted-foreground">
-              {copied === name ? 'Copied' : name}
+              {copied === name ? 'Copied' : `${name} · ${carbonIconNames[name]}`}
             </Text>
           </Stack>
         ))}

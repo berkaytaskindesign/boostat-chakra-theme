@@ -1,8 +1,10 @@
-import { Icon, type IconProps } from '@chakra-ui/react';
-import type { IconType } from 'react-icons';
+import type { ComponentProps } from 'react';
+import { Icon } from '@chakra-ui/react';
 
-type DecorativeIconProps = IconProps & {
-  as: IconType;
+type IconComponentProps = ComponentProps<typeof Icon>;
+
+type DecorativeIconProps = IconComponentProps & {
+  as: NonNullable<IconComponentProps['as']>;
 };
 
 export function DecorativeIcon({ as, boxSize = '1em', ...props }: DecorativeIconProps) {
