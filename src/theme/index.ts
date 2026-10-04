@@ -2,6 +2,7 @@ import '@fontsource/hedvig-letters-sans/latin-400.css';
 import '@fontsource/hedvig-letters-serif/latin-400.css';
 import { extendTheme, withDefaultColorScheme, type ThemeConfig } from '@chakra-ui/react';
 
+import button from './components/button';
 import { colors } from './foundations/colors';
 import { fonts } from './foundations/fonts';
 import { fontWeights } from './foundations/fontWeights';
@@ -25,6 +26,9 @@ export const theme = extendTheme(
     radii,
     shadows,
     styles,
+    components: {
+      Button: button,
+    },
   },
   withDefaultColorScheme({ colorScheme: 'brand' }),
 );

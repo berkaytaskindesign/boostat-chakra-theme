@@ -1,5 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button, HStack, Stack } from '@chakra-ui/react';
+import { Button, HStack, Icon, IconButton, Stack, Text, type IconProps } from '@chakra-ui/react';
+
+function PlusIcon(props: IconProps) {
+  return (
+    <Icon viewBox="0 0 24 24" boxSize="1em" {...props}>
+      <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+    </Icon>
+  );
+}
+
+const variants = ['solid', 'secondary', 'destructive', 'outline', 'ghost', 'link'] as const;
+const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 
 const meta = {
   title: 'Chakra v2/Form/Button',
@@ -9,39 +20,90 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Solid: Story = {
-  args: { children: 'Button' },
-};
-
-export const Variants: Story = {
+export const VariantsAndSizes: Story = {
+  name: 'Variants and sizes',
   render: () => (
-    <HStack>
-      <Button variant="solid">Solid</Button>
-      <Button variant="outline">Outline</Button>
-      <Button variant="ghost">Ghost</Button>
-      <Button variant="link">Link</Button>
-    </HStack>
+    <Stack spacing={4}>
+      {variants.map((variant) => (
+        <HStack key={variant} spacing={3} align="center">
+          <Text w="28" fontSize="sm" color="muted-foreground">
+            {variant}
+          </Text>
+          {sizes.map((size) => (
+            <Button key={size} variant={variant} size={size}>
+              {size}
+            </Button>
+          ))}
+        </HStack>
+      ))}
+    </Stack>
   ),
 };
 
-export const ColorSchemes: Story = {
+export const States: Story = {
   render: () => (
-    <HStack>
-      <Button colorScheme="gray">Gray</Button>
+    <Stack spacing={4}>
+      {variants.map((variant) => (
+        <HStack key={variant} spacing={3} align="center">
+          <Text w="28" fontSize="sm" color="muted-foreground">
+            {variant}
+          </Text>
+          <Button variant={variant}>Default</Button>
+          <Button variant={variant} data-hover>
+            Hover
+          </Button>
+          <Button variant={variant} data-active>
+            Active
+          </Button>
+          <Button variant={variant} data-focus-visible>
+            Focus
+          </Button>
+          <Button variant={variant} isDisabled>
+            Disabled
+          </Button>
+          <Button variant={variant} isLoading>
+            Loading
+          </Button>
+        </HStack>
+      ))}
+    </Stack>
+  ),
+};
+
+export const Icons: Story = {
+  render: () => (
+    <Stack spacing={6}>
+      <HStack spacing={3}>
+        <Button leftIcon={<PlusIcon />}>Left</Button>
+        <Button rightIcon={<PlusIcon />}>Right</Button>
+      </HStack>
+      {variants.map((variant) => (
+        <HStack key={variant} spacing={3} align="center">
+          <Text w="28" fontSize="sm" color="muted-foreground">
+            {variant}
+          </Text>
+          {sizes.map((size) => (
+            <IconButton
+              key={size}
+              aria-label={`${variant} ${size}`}
+              icon={<PlusIcon />}
+              variant={variant}
+              size={size}
+            />
+          ))}
+        </HStack>
+      ))}
+    </Stack>
+  ),
+};
+
+export const LegacyColorScheme: Story = {
+  name: 'Legacy colorScheme',
+  render: () => (
+    <HStack spacing={3}>
       <Button colorScheme="blue">Blue</Button>
-      <Button colorScheme="teal">Teal</Button>
+      <Button colorScheme="green">Green</Button>
       <Button colorScheme="red">Red</Button>
     </HStack>
-  ),
-};
-
-export const Sizes: Story = {
-  render: () => (
-    <Stack align="start">
-      <Button size="xs">Extra small</Button>
-      <Button size="sm">Small</Button>
-      <Button size="md">Medium</Button>
-      <Button size="lg">Large</Button>
-    </Stack>
   ),
 };

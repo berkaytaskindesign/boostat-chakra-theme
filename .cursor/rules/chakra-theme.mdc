@@ -10,8 +10,11 @@ alwaysApply: true
 - Visual reference is Midday: `reference/midday/packages/ui`. Read `src/globals.css`, `tailwind.config.ts` and the matching component file before styling a Chakra component.
 - Colors go in `semanticTokens` with light and `_dark` values. No hardcoded hex values or Chakra palette colors (`gray.800` etc.) in component files.
 - Midday style: monochrome, square-cornered buttons (radius 0), pills only for badges, tags and avatars, Hedvig Letters Sans/Serif, subtle focus ring, red only for destructive.
-- Max font weight is 500 (Hedvig has a single weight). Use size and color for hierarchy, never bold.
+- Max font weight is 400 (Hedvig has a single weight). Use size and color for hierarchy, never bold.
 - Headings use Hedvig Letters Serif. Body, UI, and mono stay Hedvig Letters Sans.
 - Radii scale is all zero; use full only for avatar/switch/radio/slider thumb/pills and subtle only for modal/drawer.
+- Interaction states: hover = 90% bg via color-mix, active = 80%, disabled = opacity 0.5 with no hover/active. Ghost/outline hover uses accent.
+- Ignore colorScheme in component styles; color comes from variants and semantic tokens only.
+- Keep Chakra's variant names; add new variants rather than renaming.
 - Check whether a component is multipart before overriding it. If it is, use `createMultiStyleConfigHelpers` with its parts.
 - Stories live in `src/stories/chakra`, use the title prefix `Chakra v2/`, and show all variants, sizes and states in light and dark mode.
