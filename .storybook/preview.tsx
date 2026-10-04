@@ -1,6 +1,71 @@
-import type { Preview } from '@storybook/react-vite'
+import type { Preview } from '@storybook/react-vite';
+import { Box, ChakraProvider, useColorMode } from '@chakra-ui/react';
+import { useEffect, type ReactNode } from 'react';
+import { mswLoader } from 'msw-storybook-addon/csf3';
+
+import { theme } from '../src/theme';
+import { mswHandlers } from './msw-handlers';
+
+function ColorModeSync({
+  colorMode,
+  children,
+}: {
+  colorMode: 'light' | 'dark';
+  children: ReactNode;
+}) {
+  const { colorMode: current, setColorMode } = useColorMode();
+
+  useEffect(() => {
+    if (current !== colorMode) setColorMode(colorMode);
+  }, [colorMode, current, setColorMode]);
+
+  return (
+    <Box
+      bg={colorMode === 'dark' ? 'gray.800' : 'white'}
+      color={colorMode === 'dark' ? 'whiteAlpha.900' : 'gray.800'}
+      p={6}
+      minH="100vh"
+    >
+      {children}
+    </Box>
+  );
+}
 
 const preview: Preview = {
+  loaders: [mswLoader()],
+  async beforeEach({ msw }) {
+    msw.use(...mswHandlers);
+  },
+  globalTypes: {
+    colorMode: {
+      name: 'Color mode',
+      description: 'Chakra UI v2 color mode',
+      defaultValue: 'light',
+      toolbar: {
+        icon: 'circlehollow',
+        items: [
+          { value: 'light', title: 'Light' },
+          { value: 'dark', title: 'Dark' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+  decorators: [
+    (Story, context) => {
+      if (!context.title.startsWith('Chakra v2/')) return <Story />;
+
+      const colorMode = context.globals.colorMode === 'dark' ? 'dark' : 'light';
+
+      return (
+        <ChakraProvider theme={theme}>
+          <ColorModeSync colorMode={colorMode}>
+            <Story />
+          </ColorModeSync>
+        </ChakraProvider>
+      );
+    },
+  ],
   parameters: {
     controls: {
       matchers: {
