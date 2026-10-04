@@ -18,12 +18,7 @@ function ColorModeSync({
   }, [colorMode, current, setColorMode]);
 
   return (
-    <Box
-      bg={colorMode === 'dark' ? 'gray.800' : 'white'}
-      color={colorMode === 'dark' ? 'whiteAlpha.900' : 'gray.800'}
-      p={6}
-      minH="100vh"
-    >
+    <Box bg="background" color="foreground" p={6} minH="100vh">
       {children}
     </Box>
   );
