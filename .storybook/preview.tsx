@@ -56,6 +56,11 @@ const preview: Preview = {
     },
   ],
   parameters: {
+    options: {
+      storySort: {
+        order: ['Chakra v2', ['Foundations', '*']],
+      },
+    },
     controls: {
       matchers: {
        color: /(background|color)$/i,
