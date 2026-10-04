@@ -22,6 +22,7 @@ type Story = StoryObj<typeof meta>;
 
 export const VariantsAndSizes: Story = {
   name: 'Variants and sizes',
+  args: { 'aria-label': 'Add', icon: <PlusIcon /> },
   render: () => (
     <Stack spacing={4}>
       {variants.map((variant) => (
