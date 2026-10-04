@@ -1,10 +1,8 @@
 import type { Preview } from '@storybook/react-vite';
 import { Box, ChakraProvider, useColorMode } from '@chakra-ui/react';
 import { useEffect, type ReactNode } from 'react';
-import { mswLoader } from 'msw-storybook-addon/csf3';
 
 import { theme } from '../src/theme';
-import { mswHandlers } from './msw-handlers';
 
 function ColorModeSync({
   colorMode,
@@ -32,10 +30,6 @@ function ColorModeSync({
 }
 
 const preview: Preview = {
-  loaders: [mswLoader()],
-  async beforeEach({ msw }) {
-    msw.use(...mswHandlers);
-  },
   globalTypes: {
     colorMode: {
       name: 'Color mode',

@@ -10,8 +10,7 @@ const config: StorybookConfig = {
     "@storybook/addon-vitest",
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
-    "@storybook/addon-mcp",
-    "msw-storybook-addon"
+    "@storybook/addon-mcp"
   ],
   "framework": "@storybook/react-vite",
   staticDirs: ['../public'],
