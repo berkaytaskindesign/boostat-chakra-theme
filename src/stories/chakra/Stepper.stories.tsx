@@ -3,7 +3,6 @@ import {
   Box,
   Step,
   StepDescription,
-  StepIcon,
   StepIndicator,
   StepNumber,
   StepSeparator,
@@ -11,6 +10,8 @@ import {
   StepTitle,
   Stepper,
 } from '@chakra-ui/react';
+
+import { StepIcon } from '../../components';
 
 const steps = [
   { title: 'Contact', description: 'Info' },

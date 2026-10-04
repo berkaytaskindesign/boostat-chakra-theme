@@ -21,6 +21,7 @@ import { colors } from './foundations/colors';
 import { fonts } from './foundations/fonts';
 import { fontWeights } from './foundations/fontWeights';
 import { radii } from './foundations/radii';
+import { sizes } from './foundations/sizes';
 import { semanticTokens } from './foundations/semanticTokens';
 import { shadows } from './foundations/shadows';
 import styles from './styles';
@@ -38,6 +39,7 @@ export const theme = extendTheme(
     fonts,
     fontWeights,
     radii,
+    sizes,
     shadows,
     styles,
     components: {

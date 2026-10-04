@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button, useToast } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
+
+import { useToast } from '../../components';
 
 const meta = {
   title: 'Chakra v2/Feedback/Toast',

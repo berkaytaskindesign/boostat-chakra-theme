@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { HStack, Select, Stack, Text } from '@chakra-ui/react';
+import { HStack, Stack, Text } from '@chakra-ui/react';
+
+import { Select } from '../../components';
 
 const variants = ['outline', 'filled', 'flushed'] as const;
 const sizes = ['sm', 'md', 'lg', 'xl'] as const;

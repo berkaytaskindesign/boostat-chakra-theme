@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CloseButton, HStack, Stack } from '@chakra-ui/react';
+import { HStack, Stack } from '@chakra-ui/react';
+
+import { CloseButton } from '../../components';
 
 const sizes = ['sm', 'md', 'lg'] as const;
 

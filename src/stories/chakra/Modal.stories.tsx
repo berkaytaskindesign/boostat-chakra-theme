@@ -3,13 +3,14 @@ import {
   Button,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
   ModalFooter,
   ModalHeader,
   ModalOverlay,
   useDisclosure,
 } from '@chakra-ui/react';
+
+import { ModalCloseButton } from '../../components';
 
 const meta = {
   title: 'Chakra v2/Overlay/Modal',

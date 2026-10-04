@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Avatar, AvatarGroup, HStack } from '@chakra-ui/react';
+import { AvatarGroup, HStack } from '@chakra-ui/react';
+
+import { Avatar } from '../../components';
 
 const meta = {
   title: 'Chakra v2/Media and icons/Avatar',

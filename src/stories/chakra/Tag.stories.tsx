@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { HStack, Tag, TagCloseButton, TagLabel } from '@chakra-ui/react';
+import { HStack, Tag, TagLabel } from '@chakra-ui/react';
+
+import { TagCloseButton } from '../../components';
 
 const meta = {
   title: 'Chakra v2/Data display/Tag',

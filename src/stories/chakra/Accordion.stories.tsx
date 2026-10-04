@@ -1,12 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
-  Box,
-} from '@chakra-ui/react';
+import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Box } from '@chakra-ui/react';
+
+import { AccordionIcon } from '../../components';
 
 const meta = {
   title: 'Chakra v2/Disclosure/Accordion',

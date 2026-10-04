@@ -1,14 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  HStack,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  Stack,
-  Text,
-} from '@chakra-ui/react';
+import { HStack, NumberInput, NumberInputField, NumberInputStepper, Stack, Text } from '@chakra-ui/react';
+
+import { NumberDecrementStepper, NumberIncrementStepper } from '../../components';
 
 const variants = ['outline', 'filled', 'flushed'] as const;
 const sizes = ['sm', 'md', 'lg', 'xl'] as const;

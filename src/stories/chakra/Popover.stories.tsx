@@ -4,11 +4,12 @@ import {
   Popover,
   PopoverArrow,
   PopoverBody,
-  PopoverCloseButton,
   PopoverContent,
   PopoverHeader,
   PopoverTrigger,
 } from '@chakra-ui/react';
+
+import { PopoverCloseButton } from '../../components';
 
 const meta = {
   title: 'Chakra v2/Overlay/Popover',

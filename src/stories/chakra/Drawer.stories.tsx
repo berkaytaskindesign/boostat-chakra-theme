@@ -3,13 +3,14 @@ import {
   Button,
   Drawer,
   DrawerBody,
-  DrawerCloseButton,
   DrawerContent,
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   useDisclosure,
 } from '@chakra-ui/react';
+
+import { DrawerCloseButton } from '../../components';
 
 const meta = {
   title: 'Chakra v2/Overlay/Drawer',

@@ -1,12 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
-  Box,
-  Stack,
-} from '@chakra-ui/react';
+import { Alert, AlertDescription, AlertTitle, Box, Stack } from '@chakra-ui/react';
+
+import { AlertIcon } from '../../components';
 
 const statuses = ['info', 'success', 'warning', 'error'] as const;
 
