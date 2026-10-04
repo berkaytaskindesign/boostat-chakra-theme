@@ -35,7 +35,7 @@ function DrawerDemo() {
             <Button variant="outline" mr={3} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme="blue">Save</Button>
+            <Button>Save</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

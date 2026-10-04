@@ -25,7 +25,7 @@ function AlertDialogDemo() {
 
   return (
     <>
-      <Button colorScheme="red" onClick={onOpen}>
+      <Button variant="destructive" onClick={onOpen}>
         Delete
       </Button>
       <AlertDialog isOpen={isOpen} leastDestructiveRef={cancelRef} onClose={onClose}>
@@ -37,7 +37,7 @@ function AlertDialogDemo() {
               <Button ref={cancelRef} onClick={onClose}>
                 Cancel
               </Button>
-              <Button colorScheme="red" onClick={onClose} ml={3}>
+              <Button variant="destructive" onClick={onClose} ml={3}>
                 Delete
               </Button>
             </AlertDialogFooter>

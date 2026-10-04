@@ -29,7 +29,7 @@ export const VariantsAndSizes: Story = {
           <Text w="28" fontSize="sm" color="muted-foreground">
             {variant}
           </Text>
-          {sizes.map((size) => (
+          {(variant === 'link' ? (['sm', 'md'] as const) : sizes).map((size) => (
             <Button key={size} variant={variant} size={size}>
               {size}
             </Button>
