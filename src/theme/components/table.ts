@@ -71,11 +71,16 @@ const caption = {
 };
 
 const footerCells = {
-  ...headerText,
+  ...bodyText,
+  fontWeight: 'bold',
   borderTopWidth: '1px',
   borderBottomWidth: 0,
+  borderRightWidth: '1px',
   borderStyle: 'solid',
   borderColor: 'border',
+  '&:last-child': {
+    borderRightWidth: 0,
+  },
 };
 
 const grid = definePartsStyle({

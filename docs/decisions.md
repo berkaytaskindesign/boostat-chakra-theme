@@ -24,7 +24,7 @@ Icons are IBM Carbon (`@carbon/icons-react`): one set with square line ends that
 
 Cards are flat. The default is outline: `background`, a 1px `border`, radius 0, and no shadow. Elevated is the same. Filled uses `card` with no border. Unstyled drops the padding. Padding is 16, 24, or 32px, and the body loses its top padding when it follows a header. The footer is a top border, 12px, muted.
 
-Tables default to Midday’s full grid: an outer border, row lines, and column dividers, with `border-collapse` so the last row and last column are not doubled. Minimal is row lines only. Striped is the grid plus accent on odd rows. Interactive is the grid plus a pointer and an accent hover on body rows. Unstyled stays bare. Density is sm, md, and lg. Headers are 12px, sentence case, and muted. Numeric cells are right-aligned and use `fonts.numeric`.
+Tables default to Midday’s full grid: an outer border, row lines, and column dividers, with `border-collapse` so the last row and last column are not doubled. Minimal is row lines only. Striped is the grid plus accent on odd rows. Interactive is the grid plus a pointer and an accent hover on body rows. Unstyled stays bare. Density is sm, md, and lg. Headers are 12px, sentence case, and muted. The footer matches the body cells, 14px and foreground, with a top border. Numeric cells are right-aligned and use `fonts.numeric`.
 
 Hedvig Letters Sans and Serif have no `tnum` feature, and their digits are proportional (`1` is much narrower than `0`). `fonts.numeric` is the hook: it is Hedvig Letters Sans for now, so a face with tabular figures can replace it in one place. Stat numbers stay on `fonts.serif`. No tabular-nums was applied.
 

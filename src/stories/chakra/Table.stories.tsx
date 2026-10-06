@@ -120,10 +120,10 @@ export const Finance: Story = {
       </Tbody>
       <Tfoot>
         <Tr>
-          <Th />
-          <Th>Total</Th>
-          <Th />
-          <Th isNumeric>£2,060.00</Th>
+          <Td />
+          <Td>Total</Td>
+          <Td />
+          <Td isNumeric>£2,060.00</Td>
         </Tr>
       </Tfoot>
       <TableCaption>Open invoices this month</TableCaption>
