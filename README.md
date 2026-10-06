@@ -11,7 +11,7 @@ npm install
 npm run storybook
 ```
 
-Storybook opens on port 6006. The hosted Storybook is at https://midday-chakra-theme.vercel.app.
+Storybook opens on port 6006. The hosted Storybook is at https://boostat-chakra-theme.vercel.app.
 
 ## Usage
 
@@ -53,4 +53,4 @@ Chakra UI is MIT.
 - [AGENTS.md](AGENTS.md) — rules, folders, and how to verify a change
 - [docs/decisions.md](docs/decisions.md) — why the theme looks this way
 - [docs/migration.md](docs/migration.md) — what changes for an existing Chakra v2 app
-- [Hosted Storybook](https://midday-chakra-theme.vercel.app)
+- [Hosted Storybook](https://boostat-chakra-theme.vercel.app)
