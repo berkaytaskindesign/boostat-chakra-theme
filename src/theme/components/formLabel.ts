@@ -6,7 +6,7 @@ const formLabel: ComponentStyleConfig = {
     fontWeight: 'normal',
     color: 'foreground',
     mb: '8px',
-    _invalid: { color: 'destructive' },
+    _invalid: { color: 'destructive-text' },
     _disabled: { opacity: 0.7 },
   },
 };

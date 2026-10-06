@@ -1,17 +1,25 @@
 import type { ComponentStyleConfig } from '@chakra-ui/react';
 
+const underline = {
+  textDecoration: 'underline',
+  textDecorationThickness: '1px',
+  textUnderlineOffset: '4px',
+};
+
 const link: ComponentStyleConfig = {
   baseStyle: {
     color: 'currentColor',
-    textDecoration: 'none',
+    ...underline,
+    textDecorationColor: 'muted-foreground',
     cursor: 'pointer',
-    transitionProperty: 'text-decoration, box-shadow',
+    transitionProperty: 'text-decoration-color, box-shadow',
     transitionDuration: '150ms',
     _hover: {
-      textDecoration: 'underline',
-      textUnderlineOffset: '4px',
+      ...underline,
+      textDecorationColor: 'foreground',
       _disabled: {
-        textDecoration: 'none',
+        ...underline,
+        textDecorationColor: 'muted-foreground',
       },
     },
     _focusVisible: {
@@ -20,6 +28,18 @@ const link: ComponentStyleConfig = {
     _disabled: {
       opacity: 0.5,
       cursor: 'not-allowed',
+    },
+  },
+  variants: {
+    plain: {
+      textDecoration: 'none',
+      _hover: {
+        ...underline,
+        textDecorationColor: 'foreground',
+        _disabled: {
+          textDecoration: 'none',
+        },
+      },
     },
   },
 };

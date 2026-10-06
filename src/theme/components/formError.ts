@@ -9,11 +9,11 @@ const formError = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
     text: {
       fontSize: '13px',
-      color: 'destructive',
+      color: 'destructive-text',
       mt: '8px',
     },
     icon: {
-      color: 'destructive',
+      color: 'destructive-text',
     },
   }),
 });

@@ -57,7 +57,9 @@ function ColorColumn({ mode }: { mode: 'light' | 'dark' }) {
           <HStack key={name} spacing={3} align="center">
             <Box bg={name} borderWidth="1px" borderColor="border" boxSize="10" flexShrink={0} />
             <Stack spacing={0}>
-              <Text fontSize="sm">{name}</Text>
+              <Text fontSize="sm" color={name === 'destructive-text' ? 'destructive-text' : 'foreground'}>
+                {name}
+              </Text>
               <Text fontSize="xs" color="muted-foreground">
                 {mode === 'light' ? token.default : token._dark}
               </Text>

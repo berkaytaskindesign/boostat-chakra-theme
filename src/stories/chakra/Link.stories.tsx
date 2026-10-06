@@ -11,13 +11,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const SizesAndStates: Story = {
-  name: 'Sizes and states',
+export const Inline: Story = {
   render: () => (
-    <Stack spacing={4} align="start">
+    <Stack spacing={4} align="start" maxW="sm">
       {textSizes.map((size) => (
         <Text key={size} fontSize={size}>
-          Read the <Link href="#">documentation</Link> for details.
+          Read the <Link href="#">documentation</Link> before you send the invoice.
         </Text>
       ))}
       <Text fontSize="sm">
@@ -41,6 +40,25 @@ export const SizesAndStates: Story = {
           Disabled
         </Link>
       </Text>
+    </Stack>
+  ),
+};
+
+export const Plain: Story = {
+  render: () => (
+    <Stack spacing={2} align="start">
+      <Link href="#" variant="plain">
+        Overview
+      </Link>
+      <Link href="#" variant="plain" data-hover>
+        Customers
+      </Link>
+      <Link href="#" variant="plain" data-focus-visible>
+        Focus
+      </Link>
+      <Link href="#" variant="plain" aria-disabled>
+        Disabled
+      </Link>
     </Stack>
   ),
 };

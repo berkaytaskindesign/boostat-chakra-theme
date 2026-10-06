@@ -72,7 +72,6 @@ const caption = {
 
 const footerCells = {
   ...bodyText,
-  fontWeight: 'bold',
   borderTopWidth: '1px',
   borderBottomWidth: 0,
   borderRightWidth: '1px',

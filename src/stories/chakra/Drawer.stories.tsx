@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   Button,
-  Drawer,
   DrawerBody,
   DrawerContent,
   DrawerFooter,
@@ -17,7 +16,7 @@ import {
   type DrawerProps,
 } from '@chakra-ui/react';
 
-import { DrawerCloseButton } from '../../components';
+import { Drawer, DrawerCloseButton } from '../../components';
 
 const sizes = ['sm', 'md', 'lg', 'full'] as const;
 
@@ -79,6 +78,22 @@ export const Left: Story = {
   render: () => (
     <Frame label="Open left drawer" placement="left" title="Filters" defaultOpen>
       <Text>Same panel, attached to the left.</Text>
+    </Frame>
+  ),
+};
+
+export const Top: Story = {
+  render: () => (
+    <Frame label="Open top drawer" placement="top" title="Notifications" defaultOpen>
+      <Text>From md up, this panel is only as tall as its content, with 16px of margin and the full width minus 32px.</Text>
+    </Frame>
+  ),
+};
+
+export const Bottom: Story = {
+  render: () => (
+    <Frame label="Open bottom drawer" placement="bottom" title="Details" defaultOpen>
+      <Text>Same short panel, attached to the bottom.</Text>
     </Frame>
   ),
 };

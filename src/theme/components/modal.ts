@@ -93,7 +93,20 @@ const modal = defineMultiStyleConfig({
     md: size('576px'),
     lg: size('720px'),
     xl: size('900px'),
-    full: size('100vw'),
+    full: definePartsStyle({
+      dialog: {
+        width: '100vw',
+        maxW: '100vw',
+        height: '100svh',
+        maxH: '100svh',
+        margin: 0,
+        mx: 0,
+        my: 0,
+        borderWidth: 0,
+        borderRadius: 'none',
+        boxShadow: 'none',
+      },
+    }),
   },
   defaultProps: {
     size: 'md',

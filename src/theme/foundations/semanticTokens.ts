@@ -34,6 +34,7 @@ export const semanticTokens = {
     'control-off': token('hsl(0, 0%, 88%)', 'hsl(0, 0%, 40%)'),
     destructive: token('hsl(0, 84.2%, 45%)', 'hsl(359, 100%, 46%)'),
     'destructive-foreground': token('hsl(0, 0%, 98%)', 'hsl(0, 0%, 100%)'),
+    'destructive-text': token('hsl(0, 84.2%, 45%)', 'hsl(359, 100%, 65%)'),
     'chakra-body-bg': alias('background'),
     'chakra-body-text': alias('foreground'),
     'chakra-border-color': alias('border'),

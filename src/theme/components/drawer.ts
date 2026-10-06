@@ -22,6 +22,41 @@ const size = (maxW: string, flush = false) =>
         },
   });
 
+const horizontal = {
+  margin: { base: 0, md: '16px' },
+  height: { base: '100%', md: 'calc(100% - 32px)' },
+  maxH: { base: '100%', md: 'calc(100% - 32px)' },
+  borderRadius: 'none',
+  boxShadow: 'none',
+};
+
+const vertical = {
+  margin: { base: 0, md: '16px' },
+  height: 'auto',
+  maxH: { base: '100%', md: 'calc(100% - 32px)' },
+  width: { base: '100%', md: 'calc(100% - 32px)' },
+  maxW: { base: '100%', md: 'calc(100% - 32px)' },
+  borderRadius: 'none',
+  boxShadow: 'none',
+};
+
+const flush = {
+  maxW: '100vw',
+  width: '100vw',
+  margin: 0,
+  height: '100%',
+  maxH: '100%',
+  borderRadius: 'none',
+  boxShadow: 'none',
+};
+
+const geometry = definePartsStyle((props) => {
+  const placement = String(props.variant ?? 'right');
+  const sheet =
+    props.size === 'full' ? flush : placement === 'top' || placement === 'bottom' ? vertical : horizontal;
+  return { dialog: sheet };
+});
+
 const drawer = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
     overlay: {
@@ -42,9 +77,6 @@ const drawer = defineMultiStyleConfig({
       borderColor: 'border',
       borderRadius: 'none',
       boxShadow: 'none',
-      margin: { base: 0, md: '16px' },
-      height: { base: '100%', md: 'calc(100% - 32px)' },
-      maxH: { base: '100%', md: 'calc(100% - 32px)' },
     },
     header: {
       flexShrink: 0,
@@ -95,8 +127,17 @@ const drawer = defineMultiStyleConfig({
     lg: size('640px'),
     full: size('100vw', true),
   },
+  variants: {
+    left: geometry,
+    right: geometry,
+    start: geometry,
+    end: geometry,
+    top: geometry,
+    bottom: geometry,
+  },
   defaultProps: {
     size: 'md',
+    variant: 'right',
   },
 });
 
