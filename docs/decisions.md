@@ -40,7 +40,7 @@ Divider color is `border` at full opacity. Solid and dashed are the variants.
 
 ## Overlays
 
-The scrim is Midday’s warm light wash (`#f6f6f3` at 60%) and a dark 80% scrim (`#0C0C0C` at 80%), shared by Modal and Drawer. Sheets use `sheet` (`#FAFAF9` / `#0C0C0C`). Modals and drawers are square: Midday’s rounding sits on the backdrop, not the dialog, so the unused `subtle` radius is gone. The `overlay` shadow is only on floating layers (Popover, Menu, Tooltip). Modal and Drawer use a 1px border and no shadow. Pages and cards stay flat.
+The scrim is Midday’s warm light wash (`#f6f6f3` at 60%) and a dark 80% scrim (`#0C0C0C` at 80%), shared by Modal and Drawer. Sheets use `sheet` (`#FAFAF9` / `#0C0C0C`). Modals and drawers are square: Midday’s rounding sits on the backdrop, not the dialog, so the unused `subtle` radius is gone. The radius scale is `none` (0). Chakra’s `sm` through `3xl` stay mapped to 0. `full` stays for avatar, switch, and radio. The `overlay` shadow is only on floating layers (Popover, Menu, Tooltip). Modal and Drawer use a 1px border and no shadow. Pages and cards stay flat.
 
 Left and right drawers float: from the `md` breakpoint they sit 16px in from the viewport and use `calc(100% - 32px)` height, and below that they are edge-attached. Top and bottom drawers use auto height, with the same 16px margin and full width minus 32px from `md` up. Padding is on the header, body, and footer (24px), not the dialog. A long modal or drawer scrolls inside the body; the header and footer stay put, and the footer buttons stay visible. Titles keep 56px on the right so they clear the close button.
 
@@ -63,6 +63,8 @@ Skeletons shimmer on accent with a primary highlight at 10%, 1.5s linear. Chakra
 ## Typography
 
 Body text is 14px (`fontSize: sm`, line height 1.5) on the global body. `Text` has no base size or color, so it inherits from a Button, a Stat number, or a table cell. Sizes are opt-in variants (`body`, `body-lg`, `caption`, `label`, `muted`) that point at `textStyles` with `{ textStyle: '<name>' }` instead of copying the values.
+
+Hedvig has one weight, 400, shown as `normal`. Chakra’s `medium`, `semibold`, and `bold` tokens stay mapped to 400 so they cannot faux-bold.
 
 `fonts.heading` is the display serif, the same face as `fonts.serif`. Headings below 20px (`xs` 14, `sm` 16) use the sans. From `md` up (20, 24, 30, 36, 48, 60px) they use the serif. The scale is fixed pixels, not Chakra’s responsive arrays. The default heading size is `lg` (24px). There is no custom letter spacing.
 

@@ -24,9 +24,6 @@ export const States: Story = {
       <Checkbox isDisabled isIndeterminate>
         Disabled indeterminate
       </Checkbox>
-      <Checkbox data-focus-visible defaultChecked>
-        Focus
-      </Checkbox>
       <FormControl isInvalid>
         <FormLabel>Terms</FormLabel>
         <Checkbox>Accept</Checkbox>
