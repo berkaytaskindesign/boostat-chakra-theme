@@ -16,7 +16,6 @@ export const States: Story = {
       <Switch defaultChecked aria-label="Checked" />
       <Switch isDisabled aria-label="Disabled" />
       <Switch isDisabled defaultChecked aria-label="Disabled checked" />
-      <Switch data-focus-visible defaultChecked aria-label="Focus" />
       <FormControl isInvalid>
         <FormLabel>Alerts</FormLabel>
         <Switch aria-label="Invalid" />

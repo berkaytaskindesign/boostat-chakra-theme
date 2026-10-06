@@ -22,17 +22,11 @@ type Story = StoryObj<typeof meta>;
 export const States: Story = {
   render: () => (
     <Stack spacing={6}>
-      <Slider defaultValue={40} aria-label="rest" maxW="320px">
+      <Slider defaultValue={40} aria-label="default" maxW="320px">
         <SliderTrack>
           <SliderFilledTrack />
         </SliderTrack>
         <SliderThumb />
-      </Slider>
-      <Slider defaultValue={40} aria-label="focus" maxW="320px">
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb data-focus-visible />
       </Slider>
       <Slider defaultValue={40} isDisabled aria-label="disabled" maxW="320px">
         <SliderTrack>

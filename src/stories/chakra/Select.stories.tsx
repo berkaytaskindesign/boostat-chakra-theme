@@ -55,16 +55,13 @@ export const States: Story = {
           <Select variant={variant} placeholder="Default">
             {options}
           </Select>
-          <Select variant={variant} placeholder="Focus" data-focus-visible>
-            {options}
-          </Select>
           <Select variant={variant} placeholder="Invalid" isInvalid defaultValue="red">
             {options}
           </Select>
           <Select variant={variant} placeholder="Disabled" isDisabled>
             {options}
           </Select>
-          <Select variant={variant} placeholder="Read only" isReadOnly defaultValue="red" data-focus-visible>
+          <Select variant={variant} placeholder="Read only" isReadOnly defaultValue="red">
             {options}
           </Select>
         </Stack>

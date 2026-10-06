@@ -16,9 +16,9 @@ type Story = StoryObj;
 
 export const Placements: Story = {
   render: () => (
-    <HStack spacing={3} pt={16}>
+    <HStack spacing={24} pt={12} pb={12}>
       {placements.map((placement) => (
-        <Tooltip key={placement} label={placement} placement={placement} isOpen>
+        <Tooltip key={placement} label={placement} placement={placement} hasArrow isOpen>
           <Button>{placement}</Button>
         </Tooltip>
       ))}
@@ -49,6 +49,7 @@ export const LongText: Story = {
   render: () => (
     <Tooltip
       label="Invoices from this month that are still open, including drafts waiting on a client."
+      hasArrow
       isOpen
     >
       <Button>Open invoices</Button>

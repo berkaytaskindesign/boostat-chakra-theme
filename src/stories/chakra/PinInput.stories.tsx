@@ -15,20 +15,17 @@ type Story = StoryObj;
 function Boxes({
   variant = 'outline',
   size = 'md',
-  focus = false,
   ...props
 }: {
   variant?: (typeof variants)[number];
   size?: (typeof sizes)[number];
-  focus?: boolean;
   isInvalid?: boolean;
   isDisabled?: boolean;
 }) {
-  const focusProps = focus ? { 'data-focus-visible': true } : {};
   return (
     <HStack>
       <PinInput variant={variant} size={size} {...props}>
-        <PinInputField {...focusProps} />
+        <PinInputField />
         <PinInputField />
         <PinInputField />
         <PinInputField />
@@ -64,7 +61,6 @@ export const States: Story = {
             {variant}
           </Text>
           <Boxes variant={variant} />
-          <Boxes variant={variant} focus />
           <Boxes variant={variant} isInvalid />
           <Boxes variant={variant} isDisabled />
         </Stack>

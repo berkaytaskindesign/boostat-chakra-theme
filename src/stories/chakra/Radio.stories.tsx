@@ -19,9 +19,6 @@ export const States: Story = {
       <Radio isDisabled defaultChecked>
         Disabled checked
       </Radio>
-      <Radio data-focus-visible defaultChecked>
-        Focus
-      </Radio>
       <FormControl isInvalid>
         <FormLabel>Plan</FormLabel>
         <Radio>Monthly</Radio>

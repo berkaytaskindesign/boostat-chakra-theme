@@ -7,13 +7,12 @@ import {
   Input,
   LightMode,
   SimpleGrid,
-  Heading,
   Stack,
   Text,
+  useTheme,
 } from '@chakra-ui/react';
 
 import { colors } from '../../theme/foundations/colors';
-import { fontWeights } from '../../theme/foundations/fontWeights';
 import { radii } from '../../theme/foundations/radii';
 import { semanticTokens } from '../../theme/foundations/semanticTokens';
 
@@ -21,19 +20,7 @@ const colorTokens = Object.entries(semanticTokens.colors).filter(
   ([name]) => !name.startsWith('chakra-'),
 );
 
-const zeroRadii = Object.entries(radii).filter(([, value]) => value === '0');
 const shapedRadii = Object.entries(radii).filter(([, value]) => value !== '0');
-const headingSizes = [
-  ['xs', '14px', 'sans'],
-  ['sm', '16px', 'sans'],
-  ['md', '20px', 'serif'],
-  ['lg', '24px', 'serif'],
-  ['xl', '30px', 'serif'],
-  ['2xl', '36px', 'serif'],
-  ['3xl', '48px', 'serif'],
-  ['4xl', '60px', 'serif'],
-] as const;
-const textVariants = ['body', 'body-lg', 'caption', 'label', 'muted'] as const;
 
 function ColorColumn({ mode }: { mode: 'light' | 'dark' }) {
   const Mode = mode === 'dark' ? DarkMode : LightMode;
@@ -103,51 +90,12 @@ export const BrandScale: Story = {
   ),
 };
 
-export const Typography: Story = {
-  render: () => (
-    <Stack spacing={10}>
-      <Stack spacing={2}>
-        <Text variant="caption">body default</Text>
-        <Text>The quick brown fox jumps over the lazy dog.</Text>
-      </Stack>
-      <Stack spacing={3}>
-        <Text variant="caption">headings</Text>
-        {headingSizes.map(([size, px, face]) => (
-          <Heading key={size} size={size}>
-            {size} {px} {face}
-          </Heading>
-        ))}
-      </Stack>
-      <Stack spacing={2}>
-        <Text variant="caption">text styles</Text>
-        {textVariants.map((variant) => (
-          <Text key={variant} variant={variant}>
-            {variant}
-          </Text>
-        ))}
-      </Stack>
-      <Stack spacing={2}>
-        <Text fontSize="sm" color="muted-foreground">
-          weights
-        </Text>
-        {Object.entries(fontWeights).map(([name, value]) => (
-          <Text key={name} fontFamily="body" fontSize="2xl" fontWeight={name}>
-            {name} {value}
-          </Text>
-        ))}
-      </Stack>
-    </Stack>
-  ),
-};
-
 export const Radii: Story = {
   render: () => (
     <Stack spacing={8} align="start">
       <Stack spacing={2} align="start">
         <Box boxSize="20" bg="muted" borderWidth="1px" borderColor="border" borderRadius="none" />
-        <Text fontSize="sm" whiteSpace="nowrap">
-          {zeroRadii.map(([name]) => name).join(' ')}
-        </Text>
+        <Text fontSize="sm">none</Text>
         <Text fontSize="xs" color="muted-foreground">
           0
         </Text>
@@ -211,4 +159,59 @@ export const FocusRing: Story = {
       </Stack>
     </Stack>
   ),
+};
+
+type BreakpointMap = Record<string, string>;
+
+/** Media-query em and rem resolve against the browser default of 16px. */
+function minWidthInPx(value: string) {
+  const amount = Number.parseFloat(value);
+  if (!Number.isFinite(amount)) return 0;
+  if (value.endsWith('em') || value.endsWith('rem')) return amount * 16;
+  return amount;
+}
+
+function formatPx(value: number) {
+  const rounded = Math.round(value * 100) / 100;
+  return `${rounded}px`;
+}
+
+function breakpointRows(breakpoints: BreakpointMap) {
+  const rows = Object.entries(breakpoints)
+    .filter(([name, value]) => Number.isNaN(Number(name)) && typeof value === 'string')
+    .map(([name, minW]) => ({ name, minW, px: minWidthInPx(minW) }))
+    .sort((a, b) => a.px - b.px);
+  const widest = rows.reduce((max, row) => Math.max(max, row.px), 0);
+
+  return rows.map((row) => ({
+    ...row,
+    width: widest === 0 ? '0%' : `${(row.px / widest) * 100}%`,
+  }));
+}
+
+function BreakpointScale() {
+  const theme = useTheme();
+  const rows = breakpointRows(theme.breakpoints as BreakpointMap);
+
+  return (
+    <Stack spacing={3}>
+      {rows.map((row) => (
+        <HStack key={row.name} spacing={3} align="center" data-breakpoint={row.name}>
+          <Text fontSize="sm" w="12" flexShrink={0} whiteSpace="nowrap">
+            {row.name}
+          </Text>
+          <Box flex="1" h="8px" bg="accent" borderWidth="1px" borderColor="border" aria-hidden>
+            <Box h="full" bg="foreground" w={row.width} minW={row.px === 0 ? '2px' : undefined} />
+          </Box>
+          <Text fontSize="sm" color="muted-foreground" flexShrink={0} whiteSpace="nowrap">
+            {formatPx(row.px)}
+          </Text>
+        </HStack>
+      ))}
+    </Stack>
+  );
+}
+
+export const Breakpoints: Story = {
+  render: () => <BreakpointScale />,
 };

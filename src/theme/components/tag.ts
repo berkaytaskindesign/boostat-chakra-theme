@@ -39,7 +39,8 @@ const tag = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
     container: {
       fontWeight: 'normal',
-      lineHeight: 1,
+      // Hedvig's descenders sit outside a line box of 1, and TagLabel clips that overflow.
+      lineHeight: 'normal',
       borderRadius: 'none',
       bg: 'accent',
       color: 'muted-foreground',
@@ -47,7 +48,7 @@ const tag = defineMultiStyleConfig({
       boxShadow: 'none',
     },
     label: {
-      lineHeight: 1,
+      lineHeight: 'normal',
       fontWeight: 'normal',
     },
     closeButton: {

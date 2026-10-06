@@ -39,10 +39,9 @@ export const States: Story = {
             {variant}
           </Text>
           <Textarea variant={variant} placeholder="Default" />
-          <Textarea variant={variant} placeholder="Focus" data-focus-visible />
           <Textarea variant={variant} placeholder="Invalid" isInvalid defaultValue="Invalid" />
           <Textarea variant={variant} placeholder="Disabled" isDisabled />
-          <Textarea variant={variant} placeholder="Read only" isReadOnly defaultValue="Read only" data-focus-visible />
+          <Textarea variant={variant} placeholder="Read only" isReadOnly defaultValue="Read only" />
         </Stack>
       ))}
     </Stack>

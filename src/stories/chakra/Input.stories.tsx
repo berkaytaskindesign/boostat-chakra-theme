@@ -60,10 +60,9 @@ export const States: Story = {
             {variant}
           </Text>
           <Input variant={variant} placeholder="Default" />
-          <Input variant={variant} placeholder="Focus" data-focus-visible />
           <Input variant={variant} placeholder="Invalid" isInvalid defaultValue="Invalid" />
           <Input variant={variant} placeholder="Disabled" isDisabled />
-          <Input variant={variant} placeholder="Read only" isReadOnly defaultValue="Read only" data-focus-visible />
+          <Input variant={variant} placeholder="Read only" isReadOnly defaultValue="Read only" />
         </Stack>
       ))}
     </Stack>

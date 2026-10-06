@@ -11,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    src: 'https://bit.ly/dan-abramov',
+    src: 'https://avatars.githubusercontent.com/u/810438?v=4',
     alt: 'Dan Abramov',
     boxSize: '64px',
   },

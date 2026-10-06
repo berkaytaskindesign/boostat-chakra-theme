@@ -22,12 +22,39 @@ export const Sizes: Story = {
           <Progress size={size} value={40} />
         </Stack>
       ))}
-      <Progress value={0} />
-      <Progress value={100}>
-        <ProgressLabel>100%</ProgressLabel>
-      </Progress>
-      <Progress value={60} hasStripe />
-      <Progress isIndeterminate />
+    </Stack>
+  ),
+};
+
+export const States: Story = {
+  render: () => (
+    <Stack spacing={4}>
+      <Stack spacing={1}>
+        <Text fontSize="xs" color="muted-foreground">
+          empty
+        </Text>
+        <Progress value={0} />
+      </Stack>
+      <Stack spacing={1}>
+        <Text fontSize="xs" color="muted-foreground">
+          complete
+        </Text>
+        <Progress value={100}>
+          <ProgressLabel>100%</ProgressLabel>
+        </Progress>
+      </Stack>
+      <Stack spacing={1}>
+        <Text fontSize="xs" color="muted-foreground">
+          striped
+        </Text>
+        <Progress value={60} hasStripe />
+      </Stack>
+      <Stack spacing={1}>
+        <Text fontSize="xs" color="muted-foreground">
+          indeterminate
+        </Text>
+        <Progress isIndeterminate />
+      </Stack>
     </Stack>
   ),
 };

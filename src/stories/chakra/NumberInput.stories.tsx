@@ -17,19 +17,17 @@ type Story = StoryObj<typeof meta>;
 function Field({
   variant = 'outline',
   size = 'md',
-  focus = false,
   ...props
 }: {
   variant?: (typeof variants)[number];
   size?: (typeof sizes)[number];
-  focus?: boolean;
   isInvalid?: boolean;
   isDisabled?: boolean;
   isReadOnly?: boolean;
 }) {
   return (
     <NumberInput variant={variant} size={size} defaultValue={15} min={0} max={50} maxW="36" {...props}>
-      <NumberInputField {...(focus ? { 'data-focus-visible': true } : {})} />
+      <NumberInputField />
       <NumberInputStepper>
         <NumberIncrementStepper />
         <NumberDecrementStepper />
@@ -65,10 +63,9 @@ export const States: Story = {
             {variant}
           </Text>
           <Field variant={variant} />
-          <Field variant={variant} focus />
           <Field variant={variant} isInvalid />
           <Field variant={variant} isDisabled />
-          <Field variant={variant} isReadOnly focus />
+          <Field variant={variant} isReadOnly />
         </Stack>
       ))}
     </Stack>

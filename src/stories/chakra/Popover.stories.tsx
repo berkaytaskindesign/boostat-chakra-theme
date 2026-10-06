@@ -26,7 +26,7 @@ type Story = StoryObj;
 
 export const Default: Story = {
   render: () => (
-    <Popover defaultIsOpen>
+    <Popover defaultIsOpen placement="bottom-start">
       <PopoverTrigger>
         <Button>Open popover</Button>
       </PopoverTrigger>
@@ -43,24 +43,9 @@ export const Default: Story = {
   ),
 };
 
-export const WithArrow: Story = {
-  name: 'With arrow',
-  render: () => (
-    <Popover defaultIsOpen placement="bottom">
-      <PopoverTrigger>
-        <Button>With arrow</Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        <PopoverArrow />
-        <PopoverBody>The arrow outline uses the same border as the content.</PopoverBody>
-      </PopoverContent>
-    </Popover>
-  ),
-};
-
 export const Form: Story = {
   render: () => (
-    <Popover defaultIsOpen>
+    <Popover defaultIsOpen placement="bottom-start">
       <PopoverTrigger>
         <Button>Edit name</Button>
       </PopoverTrigger>

@@ -27,11 +27,6 @@ export const Inline: Story = {
           Hover
         </Link>
       </Text>
-      <Text fontSize="sm">
-        <Link href="#" data-focus-visible>
-          Focus
-        </Link>
-      </Text>
       <Text fontSize="sm" color="muted-foreground">
         <Link href="#">Muted</Link>
       </Text>
@@ -52,9 +47,6 @@ export const Plain: Story = {
       </Link>
       <Link href="#" variant="plain" data-hover>
         Customers
-      </Link>
-      <Link href="#" variant="plain" data-focus-visible>
-        Focus
       </Link>
       <Link href="#" variant="plain" aria-disabled>
         Disabled

@@ -26,7 +26,6 @@ export const SizesAndStates: Story = {
         <CloseButton aria-label="Default" />
         <CloseButton aria-label="Hover" data-hover />
         <CloseButton aria-label="Active" data-active />
-        <CloseButton aria-label="Focus" data-focus-visible />
         <CloseButton aria-label="Disabled" isDisabled />
       </HStack>
     </Stack>

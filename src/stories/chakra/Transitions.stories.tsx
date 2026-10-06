@@ -1,5 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, Button, Collapse, Fade, ScaleFade, SlideFade, Stack, useDisclosure } from '@chakra-ui/react';
+import {
+  Button,
+  Collapse,
+  Fade,
+  HStack,
+  ScaleFade,
+  SlideFade,
+  Stack,
+  useDisclosure,
+} from '@chakra-ui/react';
+import type { ReactNode } from 'react';
 
 const meta = {
   title: 'Chakra v2/Other/Transitions',
@@ -9,32 +19,63 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-function TransitionDemo() {
+/** Default solid `md` is 36px tall. A shared width keeps every label the same size. */
+const sampleButton = {
+  size: 'md' as const,
+  variant: 'solid' as const,
+  w: '120px',
+};
+
+function DemoButton({ children, onClick }: { children: ReactNode; onClick?: () => void }) {
+  return (
+    <Button {...sampleButton} onClick={onClick}>
+      {children}
+    </Button>
+  );
+}
+
+function TransitionRow({ render }: { render: (isOpen: boolean) => ReactNode }) {
   const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: true });
 
   return (
-    <Stack align="start">
-      <Button onClick={onToggle}>{isOpen ? 'Hide' : 'Show'}</Button>
-      <Fade in={isOpen}>
-        <Box p="4" bg="teal.500" color="white" rounded="md">
-          Fade
-        </Box>
-      </Fade>
-      <ScaleFade in={isOpen} initialScale={0.9}>
-        <Box p="4" bg="blue.500" color="white" rounded="md">
-          Scale
-        </Box>
-      </ScaleFade>
-      <SlideFade in={isOpen} offsetY="20px">
-        <Box p="4" bg="purple.500" color="white" rounded="md">
-          Slide
-        </Box>
-      </SlideFade>
-      <Collapse in={isOpen}>
-        <Box p="4" bg="orange.500" color="white" rounded="md">
-          Collapse
-        </Box>
-      </Collapse>
+    <HStack align="center" spacing={3}>
+      <DemoButton onClick={onToggle}>{isOpen ? 'Hide' : 'Show'}</DemoButton>
+      {render(isOpen)}
+    </HStack>
+  );
+}
+
+function TransitionDemo() {
+  return (
+    <Stack align="start" spacing={4}>
+      <TransitionRow
+        render={(isOpen) => (
+          <Fade in={isOpen}>
+            <DemoButton>Fade</DemoButton>
+          </Fade>
+        )}
+      />
+      <TransitionRow
+        render={(isOpen) => (
+          <ScaleFade in={isOpen} initialScale={0.9}>
+            <DemoButton>Scale</DemoButton>
+          </ScaleFade>
+        )}
+      />
+      <TransitionRow
+        render={(isOpen) => (
+          <SlideFade in={isOpen} offsetY="20px">
+            <DemoButton>Slide</DemoButton>
+          </SlideFade>
+        )}
+      />
+      <TransitionRow
+        render={(isOpen) => (
+          <Collapse in={isOpen}>
+            <DemoButton>Collapse</DemoButton>
+          </Collapse>
+        )}
+      />
     </Stack>
   );
 }
