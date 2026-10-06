@@ -1,75 +1,56 @@
-# React + TypeScript + Vite
+# midday-chakra-theme
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Chakra UI v2 theme with the Midday look: monochrome, square corners, Hedvig Letters Sans and Serif, and a single font weight. It ships the theme, a small set of wrappers, and an icon set. Storybook is the place to look at it.
 
-Currently, two official plugins are available:
+Built and tested with React 19, Chakra UI 2.10, framer-motion 14, and Storybook 10. Treat that list as the baseline when you adopt it.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Quick start
 
 ```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+npm install
+npm run storybook
 ```
+
+Storybook opens on port 6006. The hosted Storybook is at https://midday-chakra-theme.vercel.app.
+
+## Usage
+
+```tsx
+import { ChakraProvider, theme, Button, Icon, Icons } from 'midday-chakra-theme'
+
+export function App() {
+  return (
+    <ChakraProvider theme={theme}>
+      <Button>Save</Button>
+      <Icon as={Icons.Check} boxSize="icon-sm" />
+    </ChakraProvider>
+  )
+}
+```
+
+Import icons from this package (`Icons`), not from `@chakra-ui/icons` or another icon library. Import the wrapped components from this package too: CloseButton, ModalCloseButton, DrawerCloseButton, PopoverCloseButton, Select, Checkbox, the number steppers, AccordionIcon, AlertIcon, FormErrorIcon, Avatar, TagCloseButton, MenuItemOption, StepIcon, StatArrow, AlertDialog, Drawer, Breadcrumb, useToast, CircularProgress, Skeleton, SkeletonText, and SkeletonCircle. Everything else Chakra exports is re-exported from the same entry.
+
+## Adopting this in your app
+
+Copy `src/` into the app, or depend on this package. Either way the public API is `src/index.ts`.
+
+The package exports TypeScript source, so the consuming app has to transpile it (Next.js does this with `transpilePackages`). The bundler also has to accept the `@fontsource` CSS imports that load Hedvig Letters.
+
+Check the version list above before you upgrade React, Chakra, framer-motion, or Storybook.
+
+## Licences & attribution
+
+Midday was used only as a visual reference. No Midday source code is included. Midday is AGPL-3.0, and `reference/` is gitignored.
+
+Carbon icons are © IBM and licensed under the Apache License 2.0. See `NOTICE`.
+
+Hedvig Letters Sans and Serif are under the SIL Open Font License.
+
+Chakra UI is MIT.
+
+## Further reading
+
+- [AGENTS.md](AGENTS.md) — rules, folders, and how to verify a change
+- [docs/decisions.md](docs/decisions.md) — why the theme looks this way
+- [docs/migration.md](docs/migration.md) — what changes for an existing Chakra v2 app
+- [Hosted Storybook](https://midday-chakra-theme.vercel.app)

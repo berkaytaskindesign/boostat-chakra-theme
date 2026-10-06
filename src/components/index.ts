@@ -54,7 +54,7 @@ export {
   border, color, effect, filter, flexbox, grid, interactivity, layout,
   list, others, position, ring, space, textDecoration, transform, transition,
   typography, scroll, calc, addPrefix, cssVar, defineCssVars, toVarDefinition, toVarReference,
-  toCSSVar, flattenTokens, isChakraTheme, requiredChakraThemeKeys, baseTheme, theme,
+  toCSSVar, flattenTokens, isChakraTheme, requiredChakraThemeKeys, baseTheme,
 } from '@chakra-ui/react';
 
 export { CloseButton } from './closeButton';

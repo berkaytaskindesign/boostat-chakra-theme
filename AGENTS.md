@@ -1,11 +1,12 @@
----
-description: Chakra UI v2 theme rules based on the Midday visual reference
-alwaysApply: true
----
+# midday-chakra-theme
 
-# Chakra v2 theme
+A Chakra UI v2 theme with the Midday look: monochrome, square corners, Hedvig Letters, and one font weight. This repository is the theme, its wrappers, and Storybook. It is not an application.
 
-AGENTS.md is the canonical copy of these rules.
+`src/index.ts` is the entry point. It exports `theme`, every wrapper in `src/components` (which also re-exports Chakra), and `Icons` / `IconName`.
+
+## Rules
+
+This section is the canonical copy of the theme rules. `.cursor/rules/chakra-theme.mdc` matches it.
 
 - Chakra UI v2 only (`extendTheme`, `ComponentStyleConfig`, `createMultiStyleConfigHelpers`). Never use v3 APIs (`createSystem`, `defineRecipe`, `Dialog`, `Field`) or Tailwind.
 - Theme lives in `src/theme/` following Chakra's recommended structure: `index.ts`, `styles.ts`, `foundations/`, `components/` (one file per component).
@@ -30,3 +31,28 @@ AGENTS.md is the canonical copy of these rules.
 - Tabs default to the segmented control (accent bar, active tab background); line is a 1px underline. Tabs have one size. Breadcrumb comes from `src/components` (Carbon chevron separator); breadcrumb links are not underlined at rest. Stepper indicators are square, 24px.
 - Alerts are monochrome except error (red border + destructive-text). Toasts use the Alert toast variant (card panel, overlay shadow); error toasts keep that card with a destructive border and destructive-text. Toasts appear bottom-left (top on mobile). Use CircularProgress from src/components. Skeletons shimmer (static with reduced motion).
 - Stories live in `src/stories/chakra`, use the title prefix `Chakra v2/`, and show all variants, sizes and states in light and dark mode.
+
+## Folders
+
+- `src/theme` — foundations, global styles, and one file per component.
+- `src/components` — wrappers that set a default the theme cannot, plus a re-export of Chakra.
+- `src/icons` — the Carbon icon set. Import icon libraries only here.
+- `src/stories` — Storybook, under the title prefix `Chakra v2/`.
+- `docs` — design decisions and the migration notes for an existing Chakra v2 app.
+
+## Verify
+
+- `npx tsc -b --noEmit`
+- `npm run lint`
+- `npm run storybook` — Storybook on port 6006
+- `npm test` — the Storybook browser tests (Vitest, configured in `vite.config.ts`)
+
+## Visual reference
+
+`reference/` is gitignored. It is a local checkout of Midday and is not part of this package. Midday is AGPL-3.0. To put the reference back:
+
+```
+git clone https://github.com/midday-ai/midday.git reference/midday
+```
+
+Before styling a component, read `reference/midday/packages/ui/src/globals.css`, `tailwind.config.ts`, and the matching component file.
