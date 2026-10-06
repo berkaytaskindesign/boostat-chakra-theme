@@ -53,6 +53,7 @@ export default defineConfig([globalIgnores(['dist', 'reference']), {
 }, {
   files: ['src/stories/**/*.{ts,tsx}', 'src/components/**/*.{ts,tsx}'],
   ignores: [
+    'src/components/alertDialog.tsx',
     'src/components/accordionIcon.tsx',
     'src/components/alertIcon.tsx',
     'src/components/avatar.tsx',
@@ -94,6 +95,7 @@ export default defineConfig([globalIgnores(['dist', 'reference']), {
             'MenuItemOption',
             'StepIcon',
             'StatArrow',
+            'AlertDialog',
             'useToast',
           ],
           message: 'Import this from src/components.',

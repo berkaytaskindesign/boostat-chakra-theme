@@ -34,3 +34,11 @@ Accordion items have a bottom border only. The button has no hover fill, an offs
 
 Divider color is `border` at full opacity. Solid and dashed are the variants.
 
+## Overlays
+
+The scrim is Midday’s warm light wash (`#f6f6f3` at 60%) and a dark 80% scrim (`#0C0C0C` at 80%), shared by Modal and Drawer. Sheets use `sheet` (`#FAFAF9` / `#0C0C0C`). Modals and drawers are square: Midday’s rounding sits on the backdrop, not the dialog, so the unused `subtle` radius is gone. The `overlay` shadow is only on floating layers (Popover, Menu, Tooltip). Modal and Drawer use a 1px border and no shadow. Pages and cards stay flat.
+
+The drawer is a floating panel: from the `md` breakpoint it sits 16px in from the viewport, and below that it is edge-attached. Padding is on the header, body, and footer (24px), not the dialog. A long modal or drawer scrolls inside the body; the header and footer stay put, and the footer buttons stay visible. Titles keep 56px on the right so they clear the close button.
+
+The tooltip is the classic inverted one (foreground on background), deliberately not Midday’s light tooltip. Modal widths are 512, 576, 720, and 900px, plus full. Drawer widths are 384, 520, and 640px, plus full. AlertDialog uses the Modal theme and defaults to the small size through a wrapper in `src/components`.
+

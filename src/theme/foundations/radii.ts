@@ -8,5 +8,4 @@ export const radii = {
   '2xl': '0',
   '3xl': '0',
   full: '9999px',
-  subtle: '4px',
 };

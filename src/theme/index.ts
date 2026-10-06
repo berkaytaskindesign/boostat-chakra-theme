@@ -9,6 +9,11 @@ import button from './components/button';
 import card from './components/card';
 import code from './components/code';
 import divider from './components/divider';
+import drawer from './components/drawer';
+import menu from './components/menu';
+import modal from './components/modal';
+import popover from './components/popover';
+import tooltip from './components/tooltip';
 import kbd from './components/kbd';
 import checkbox from './components/checkbox';
 import closeButton from './components/closeButton';
@@ -60,6 +65,11 @@ export const theme = extendTheme(
       Card: card,
       Code: code,
       Divider: divider,
+      Drawer: drawer,
+      Menu: menu,
+      Modal: modal,
+      Popover: popover,
+      Tooltip: tooltip,
       Kbd: kbd,
       Checkbox: checkbox,
       CloseButton: closeButton,

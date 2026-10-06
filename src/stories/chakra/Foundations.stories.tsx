@@ -189,6 +189,28 @@ export const Radii: Story = {
   ),
 };
 
+export const Shadows: Story = {
+  render: () => (
+    <SimpleGrid columns={2} spacing={8}>
+      {(['light', 'dark'] as const).map((mode) => {
+        const Mode = mode === 'dark' ? DarkMode : LightMode;
+        return (
+          <Mode key={mode}>
+            <Stack bg="background" color="foreground" p={8} spacing={3} borderWidth="1px" borderColor="border">
+              <Box bg="background" borderWidth="1px" borderColor="border" boxShadow="overlay" p={6}>
+                <Text fontSize="sm">overlay</Text>
+              </Box>
+              <Text fontSize="xs" color="muted-foreground">
+                {mode}
+              </Text>
+            </Stack>
+          </Mode>
+        );
+      })}
+    </SimpleGrid>
+  ),
+};
+
 export const FocusRing: Story = {
   name: 'Focus ring',
   render: () => (

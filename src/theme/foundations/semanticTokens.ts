@@ -25,6 +25,8 @@ export const semanticTokens = {
     accent: token('hsl(40, 10%, 94%)', 'hsl(0, 0%, 11%)'),
     'accent-foreground': token('hsl(240, 5.9%, 10%)', 'hsl(0, 0%, 98%)'),
     border: token('hsl(45, 5%, 85%)', 'hsl(0, 0%, 11%)'),
+    'overlay-scrim': token('hsla(60, 14%, 96%, 0.6)', 'hsla(0, 0%, 5%, 0.8)'),
+    sheet: token('hsl(60, 9%, 98%)', 'hsl(0, 0%, 5%)'),
     input: token('hsl(240, 5.9%, 90%)', 'hsl(0, 0%, 11%)'),
     ring: token('hsl(240, 5.9%, 10%)', 'hsl(240, 4.9%, 83.9%)'),
     'focus-border': alias('foreground'),
@@ -38,5 +40,8 @@ export const semanticTokens = {
     'chakra-placeholder-color': alias('muted-foreground'),
     'chakra-subtle-bg': alias('muted'),
     'chakra-subtle-text': alias('muted-foreground'),
+  },
+  shadows: {
+    overlay: token('0 4px 16px -2px hsla(0, 0%, 0%, 0.08)', '0 4px 16px -2px hsla(0, 0%, 0%, 0.5)'),
   },
 };

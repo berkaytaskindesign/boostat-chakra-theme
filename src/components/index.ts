@@ -21,7 +21,7 @@ export {
   Menu, useMenuStyles, MenuButton, MenuCommand, MenuDivider, MenuGroup, MenuIcon, MenuItem,
   MenuList, MenuOptionGroup, MenuDescendantsProvider, MenuProvider, useMenu, useMenuButton, useMenuContext, useMenuDescendant,
   useMenuDescendants, useMenuDescendantsContext, useMenuItem, useMenuList, useMenuOption, useMenuOptionGroup, useMenuPositioner, useMenuState,
-  AlertDialog, AlertDialogContent, AlertDialogBody, DrawerBody, ModalBody, AlertDialogCloseButton, AlertDialogFooter, DrawerFooter,
+  AlertDialogContent, AlertDialogBody, DrawerBody, ModalBody, AlertDialogCloseButton, AlertDialogFooter, DrawerFooter,
   ModalFooter, AlertDialogHeader, DrawerHeader, ModalHeader, AlertDialogOverlay, DrawerOverlay, ModalOverlay, Drawer,
   useDrawerContext, DrawerContent, Modal, ModalContextProvider, useModalContext, useModalStyles, ModalContent, ModalFocusScope,
   useModal, useModalManager, NumberInput, NumberInputField, NumberInputStepper, useNumberInputStyles, useNumberInput, PinInput,
@@ -72,5 +72,6 @@ export { Avatar } from './avatar';
 export { TagCloseButton } from './tagCloseButton';
 export { MenuItemOption } from './menuItemOption';
 export { StatArrow } from './statArrow';
+export { AlertDialog } from './alertDialog';
 export { StepIcon } from './stepIcon';
 export { useToast } from './useToast';

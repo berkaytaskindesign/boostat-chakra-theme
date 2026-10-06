@@ -12,9 +12,9 @@ alwaysApply: true
 - Midday style: monochrome, square-cornered buttons (radius 0), Hedvig Letters Sans/Serif, subtle focus ring, red only for destructive.
 - Max font weight is 400 (Hedvig has a single weight). Use size and color for hierarchy, never bold.
 - Headings use Hedvig Letters Serif. Body, UI, and mono stay Hedvig Letters Sans.
-- Radii scale is all zero; use full only for avatar/switch/radio/pills and subtle only for modal/drawer. Slider track and thumb stay square.
+- Radii scale is all zero; use full only for avatar, switch, and radio. Slider track and thumb stay square. Modals and drawers are square.
 - Selection controls use Midday’s single size: checkbox and radio 16px, switch 44×24, slider track 8px, thumb 20px and square. Do not add sm/lg sizes or a round slider thumb.
-- Icons come from `src/icons` (`Icons.Name`), IBM Carbon glyphs from `@carbon/icons-react`, via Chakra `<Icon>` with `icon-sm`/`icon-md`/`icon-lg` sizes. Import icon libraries only in `src/icons`. Never use Chakra's built-in icons or `@chakra-ui/icons`. Import CloseButton, ModalCloseButton, DrawerCloseButton, PopoverCloseButton, Select, Checkbox, NumberIncrementStepper, NumberDecrementStepper, AccordionIcon, AlertIcon, FormErrorIcon, Avatar, TagCloseButton, MenuItemOption, StepIcon, StatArrow, and useToast from `src/components`.
+- Icons come from `src/icons` (`Icons.Name`), IBM Carbon glyphs from `@carbon/icons-react`, via Chakra `<Icon>` with `icon-sm`/`icon-md`/`icon-lg` sizes. Import icon libraries only in `src/icons`. Never use Chakra's built-in icons or `@chakra-ui/icons`. Import CloseButton, ModalCloseButton, DrawerCloseButton, PopoverCloseButton, Select, Checkbox, NumberIncrementStepper, NumberDecrementStepper, AccordionIcon, AlertIcon, FormErrorIcon, Avatar, TagCloseButton, MenuItemOption, StepIcon, StatArrow, AlertDialog, and useToast from `src/components`.
 - Labels (Tag, Code, Kbd) are square, fontWeight normal, never uppercase. Tag and Kbd are 12px. Code is 0.875em so it scales with the surrounding text. Default look is bg accent with muted-foreground text. Tag is the only label: it has the compact badge size plus larger sizes, and it can hold an icon and a close button. Avatars are round by default with a square variant for companies/logos; no per-name colors.
 - Interaction states: hover = 90% bg via color-mix, active = 80%, disabled = opacity 0.5 with no hover/active. Ghost/outline hover uses accent.
 - Field focus (inputs, selects, textareas, and future form controls): border color changes to focus-border, no box shadow, no layout shift. Buttons keep the offset ring.
@@ -22,6 +22,6 @@ alwaysApply: true
 - Ignore colorScheme in component styles; color comes from variants and semantic tokens only.
 - Keep Chakra's variant names; add new variants rather than renaming.
 - Check whether a component is multipart before overriding it. If it is, use `createMultiStyleConfigHelpers` with its parts.
-- Surfaces are flat: no shadows. Cards default to background + 1px border. Tables default to Midday's full grid (minimal for row lines only, interactive for clickable rows); headers are 12px, sentence case, muted. Numbers in tables and Stats are right-aligned (tabular figures if the font supports them). Stat numbers use the serif font. StatArrow comes from `src/components`.
+- Surfaces are flat. No shadows except overlay, used only on floating layers (Popover, Menu, Tooltip). Cards default to background + 1px border. Tables default to Midday's full grid (minimal for row lines only, interactive for clickable rows); headers are 12px, sentence case, muted. Numbers in tables and Stats are right-aligned (tabular figures if the font supports them). Stat numbers use the serif font. StatArrow comes from `src/components`.
 - Inside a Card, use the minimal table so borders don't double.
 - Stories live in `src/stories/chakra`, use the title prefix `Chakra v2/`, and show all variants, sizes and states in light and dark mode.
