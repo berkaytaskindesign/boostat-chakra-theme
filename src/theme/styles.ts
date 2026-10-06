@@ -4,6 +4,10 @@ const styles = {
       bg: 'background',
       color: 'foreground',
     },
+    '.chakra-stat__group': {
+      gap: '24px',
+      justifyContent: 'flex-start',
+    },
   },
 };
 

@@ -4,7 +4,7 @@ const code: ComponentStyleConfig = {
   baseStyle: {
     fontFamily: 'mono',
     fontWeight: 'normal',
-    fontSize: 'xs',
+    fontSize: '0.875em',
     px: '4px',
     borderRadius: 'none',
     bg: 'secondary',

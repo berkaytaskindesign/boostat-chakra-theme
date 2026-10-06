@@ -2,10 +2,13 @@ import '@fontsource/hedvig-letters-sans/latin-400.css';
 import '@fontsource/hedvig-letters-serif/latin-400.css';
 import { extendTheme, withDefaultColorScheme, type ThemeConfig } from '@chakra-ui/react';
 
+import accordion from './components/accordion';
 import avatar from './components/avatar';
 import badge from './components/badge';
 import button from './components/button';
+import card from './components/card';
 import code from './components/code';
+import divider from './components/divider';
 import kbd from './components/kbd';
 import checkbox from './components/checkbox';
 import closeButton from './components/closeButton';
@@ -19,7 +22,9 @@ import pinInput from './components/pinInput';
 import radio from './components/radio';
 import select from './components/select';
 import slider from './components/slider';
+import stat from './components/stat';
 import switchTheme from './components/switch';
+import table from './components/table';
 import tag from './components/tag';
 import textarea from './components/textarea';
 import { colors } from './foundations/colors';
@@ -48,10 +53,13 @@ export const theme = extendTheme(
     shadows,
     styles,
     components: {
+      Accordion: accordion,
       Avatar: avatar,
       Badge: badge,
       Button: button,
+      Card: card,
       Code: code,
+      Divider: divider,
       Kbd: kbd,
       Checkbox: checkbox,
       CloseButton: closeButton,
@@ -65,7 +73,9 @@ export const theme = extendTheme(
       Radio: radio,
       Select: select,
       Slider: slider,
+      Stat: stat,
       Switch: switchTheme,
+      Table: table,
       Tag: tag,
       Textarea: textarea,
     },

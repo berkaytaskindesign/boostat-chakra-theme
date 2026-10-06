@@ -1,11 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { HStack, Icon, Stack, Tag, TagLabel } from '@chakra-ui/react';
+import {
+  Button,
+  Heading,
+  HStack,
+  Icon,
+  Stack,
+  Table,
+  Tag,
+  TagLabel,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+} from '@chakra-ui/react';
 
 import { TagCloseButton } from '../../components';
 import { Icons } from '../../icons';
 
-const variants = ['subtle', 'solid', 'outline'] as const;
-const sizes = ['sm', 'md', 'lg'] as const;
+const variants = ['subtle', 'outline', 'destructive'] as const;
+const sizes = ['xs', 'sm', 'md', 'lg'] as const;
 
 const meta = {
   title: 'Chakra v2/Data display/Tag',
@@ -45,6 +60,56 @@ export const WithIconAndClose: Story = {
         <Icon as={Icons.Add} boxSize="icon-sm" marginEnd="4px" aria-hidden />
         <TagLabel>Add label</TagLabel>
       </Tag>
+      <Tag variant="destructive" size="sm">
+        <TagLabel>Overdue</TagLabel>
+        <TagCloseButton aria-label="Remove Overdue" />
+      </Tag>
     </HStack>
+  ),
+};
+
+export const InContext: Story = {
+  render: () => (
+    <Stack spacing={6} align="start">
+      <HStack spacing={3}>
+        <Heading size="md">Invoices</Heading>
+        <Tag size="xs">
+          <TagLabel>12</TagLabel>
+        </Tag>
+      </HStack>
+      <Table>
+        <Thead>
+          <Tr>
+            <Th>Client</Th>
+            <Th>Status</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          <Tr>
+            <Td>Acme</Td>
+            <Td>
+              <Tag size="xs">
+                <TagLabel>Paid</TagLabel>
+              </Tag>
+            </Td>
+          </Tr>
+          <Tr>
+            <Td>Northwind</Td>
+            <Td>
+              <Tag size="xs" variant="outline">
+                <TagLabel>Draft</TagLabel>
+              </Tag>
+            </Td>
+          </Tr>
+        </Tbody>
+      </Table>
+      <HStack h="36px" px={3} spacing={3} border="1px solid" borderColor="border" align="center">
+        <Text>Send invoice</Text>
+        <Tag size="xs" variant="outline">
+          <TagLabel>Ready</TagLabel>
+        </Tag>
+        <Button size="md">Send</Button>
+      </HStack>
+    </Stack>
   ),
 };

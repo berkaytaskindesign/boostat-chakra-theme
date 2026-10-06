@@ -33,7 +33,7 @@ export {
   RangeSliderMark, RangeSliderProvider, RangeSliderThumb, RangeSliderTrack, useRangeSliderContext, useRangeSliderStyles, Slider, SliderFilledTrack,
   SliderMark, SliderProvider, SliderThumb, SliderTrack, useSliderContext, useSliderStyles, useRangeSlider, useSlider,
   Spacer, Spinner, HStack, Stack, StackDivider, VStack, Stat, useStatStyles,
-  StatArrow, StatDownArrow, StatUpArrow, StatGroup, StatHelpText, StatLabel, StatNumber, Step,
+  StatDownArrow, StatUpArrow, StatGroup, StatHelpText, StatLabel, StatNumber, Step,
   useStepContext, useStepperStyles, StepDescription, StepIndicator, StepIndicatorContent, StepNumber, StepSeparator, StepStatus,
   StepTitle, Stepper, useSteps, Switch, shouldForwardProp, useTheme, getToken, useChakra,
   useToken, CSSVars, GlobalStyle, StylesProvider, ThemeProvider, createStylesContext, useStyles, styled,
@@ -71,5 +71,6 @@ export { FormErrorIcon } from './formErrorIcon';
 export { Avatar } from './avatar';
 export { TagCloseButton } from './tagCloseButton';
 export { MenuItemOption } from './menuItemOption';
+export { StatArrow } from './statArrow';
 export { StepIcon } from './stepIcon';
 export { useToast } from './useToast';

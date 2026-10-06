@@ -93,6 +93,7 @@ export default defineConfig([globalIgnores(['dist', 'reference']), {
             'TagCloseButton',
             'MenuItemOption',
             'StepIcon',
+            'StatArrow',
             'useToast',
           ],
           message: 'Import this from src/components.',

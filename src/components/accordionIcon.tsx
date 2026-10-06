@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { Icon, useAccordionItemState, type IconProps } from '@chakra-ui/react';
+import { Icon, useAccordionItemState, useAccordionStyles, type IconProps } from '@chakra-ui/react';
 
 import { Icons } from '../icons';
 
@@ -7,17 +7,17 @@ export const AccordionIcon = forwardRef<SVGSVGElement, IconProps>(function Accor
   props,
   ref,
 ) {
-  const { isOpen, isDisabled } = useAccordionItemState();
+  const { isOpen } = useAccordionItemState();
+  const styles = useAccordionStyles();
 
   return (
     <Icon
       ref={ref}
       as={Icons.ExpandMore}
       className="chakra-accordion__icon"
-      opacity={isDisabled ? 0.4 : 1}
+      __css={styles.icon}
       transform={isOpen ? 'rotate(180deg)' : undefined}
       transformOrigin="center"
-      transition="transform 0.2s"
       {...props}
       aria-hidden="true"
     />

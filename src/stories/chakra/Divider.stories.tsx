@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Divider, Stack, Text } from '@chakra-ui/react';
+import { Divider, HStack, Stack, Text } from '@chakra-ui/react';
 
 const meta = {
   title: 'Chakra v2/Data display/Divider',
@@ -9,13 +9,32 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Variants: Story = {
+export const Horizontal: Story = {
   render: () => (
-    <Stack>
-      <Text>Solid</Text>
+    <Stack spacing={4} maxW="sm">
+      <Text>Above</Text>
       <Divider />
-      <Text>Dashed</Text>
+      <Text>Below</Text>
+    </Stack>
+  ),
+};
+
+export const Vertical: Story = {
+  render: () => (
+    <HStack h="40px" spacing={4} align="stretch">
+      <Text>Left</Text>
+      <Divider orientation="vertical" />
+      <Text>Right</Text>
+    </HStack>
+  ),
+};
+
+export const Dashed: Story = {
+  render: () => (
+    <Stack spacing={4} maxW="sm">
+      <Text>Above</Text>
       <Divider variant="dashed" />
+      <Text>Below</Text>
     </Stack>
   ),
 };

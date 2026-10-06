@@ -19,6 +19,21 @@ export const Inline: Story = {
   ),
 };
 
+const sample = `import { ChakraProvider } from '@chakra-ui/react'
+import { theme } from 'midday-chakra-theme'
+
+export function App() {
+  return <ChakraProvider theme={theme}>...</ChakraProvider>
+}`;
+
+export const Multiline: Story = {
+  render: () => (
+    <Code display="block" whiteSpace="pre" py="8px" lineHeight="1.6" maxW="md">
+      {sample}
+    </Code>
+  ),
+};
+
 export const Variants: Story = {
   render: () => (
     <HStack spacing={3}>

@@ -66,6 +66,7 @@ const tag = defineMultiStyleConfig({
     },
   }),
   sizes: {
+    xs: size('20px', '8px', 'xs'),
     sm: size('24px', '8px', 'xs'),
     md: size('28px', '10px', 'sm'),
     lg: size('32px', '12px', 'sm'),
@@ -75,10 +76,13 @@ const tag = defineMultiStyleConfig({
       container: containerLook('accent', 'muted-foreground', 'none', 'transparent'),
     }),
     solid: definePartsStyle({
-      container: containerLook('primary', 'primary-foreground', 'none', 'transparent'),
+      container: containerLook('accent', 'muted-foreground', 'none', 'transparent'),
     }),
     outline: definePartsStyle({
       container: containerLook('transparent', 'foreground', '1px solid', 'border'),
+    }),
+    destructive: definePartsStyle({
+      container: containerLook('destructive', 'destructive-foreground', 'none', 'transparent'),
     }),
   },
   defaultProps: {

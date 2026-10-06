@@ -26,7 +26,7 @@ const badge: ComponentStyleConfig = {
   },
   variants: {
     subtle: flat('accent', 'muted-foreground'),
-    solid: flat('primary', 'primary-foreground'),
+    solid: flat('accent', 'muted-foreground'),
     outline: {
       bg: 'transparent',
       color: 'foreground',
