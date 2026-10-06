@@ -7,19 +7,12 @@ import {
   Input,
   LightMode,
   SimpleGrid,
+  Heading,
   Stack,
-  Table,
-  Tbody,
-  Td,
   Text,
-  Th,
-  Thead,
-  Tr,
 } from '@chakra-ui/react';
 
-import { theme } from '../../theme';
 import { colors } from '../../theme/foundations/colors';
-import { fonts } from '../../theme/foundations/fonts';
 import { fontWeights } from '../../theme/foundations/fontWeights';
 import { radii } from '../../theme/foundations/radii';
 import { semanticTokens } from '../../theme/foundations/semanticTokens';
@@ -28,13 +21,19 @@ const colorTokens = Object.entries(semanticTokens.colors).filter(
   ([name]) => !name.startsWith('chakra-'),
 );
 
-const fontSizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'] as const;
 const zeroRadii = Object.entries(radii).filter(([, value]) => value === '0');
 const shapedRadii = Object.entries(radii).filter(([, value]) => value !== '0');
-const typefaces = [
-  { name: 'body / mono', family: 'body' },
-  { name: 'heading', family: 'heading' },
+const headingSizes = [
+  ['xs', '14px', 'sans'],
+  ['sm', '16px', 'sans'],
+  ['md', '20px', 'serif'],
+  ['lg', '24px', 'serif'],
+  ['xl', '30px', 'serif'],
+  ['2xl', '36px', 'serif'],
+  ['3xl', '48px', 'serif'],
+  ['4xl', '60px', 'serif'],
 ] as const;
+const textVariants = ['body', 'body-lg', 'caption', 'label', 'muted'] as const;
 
 function ColorColumn({ mode }: { mode: 'light' | 'dark' }) {
   const Mode = mode === 'dark' ? DarkMode : LightMode;
@@ -107,45 +106,26 @@ export const BrandScale: Story = {
 export const Typography: Story = {
   render: () => (
     <Stack spacing={10}>
-      <Table variant="simple" size="sm">
-        <Thead>
-          <Tr>
-            <Th textTransform="none" letterSpacing="normal">
-              size
-            </Th>
-            <Th textTransform="none" letterSpacing="normal">
-              font-size
-            </Th>
-            <Th textTransform="none" letterSpacing="normal">
-              line-height
-            </Th>
-            {typefaces.map((face) => (
-              <Th key={face.name} textTransform="none" letterSpacing="normal" fontWeight="normal">
-                {face.name}
-                <Text fontSize="xs" color="muted-foreground" fontWeight="normal">
-                  {fonts[face.family]}
-                </Text>
-              </Th>
-            ))}
-          </Tr>
-        </Thead>
-        <Tbody>
-          {fontSizes.map((size) => (
-            <Tr key={size}>
-              <Td verticalAlign="baseline">{size}</Td>
-              <Td verticalAlign="baseline">{String(theme.fontSizes[size])}</Td>
-              <Td verticalAlign="baseline">{String(theme.lineHeights.base)}</Td>
-              {typefaces.map((face) => (
-                <Td key={face.name} verticalAlign="baseline">
-                  <Text fontFamily={face.family} fontSize={size} lineHeight="base">
-                    {size}
-                  </Text>
-                </Td>
-              ))}
-            </Tr>
-          ))}
-        </Tbody>
-      </Table>
+      <Stack spacing={2}>
+        <Text variant="caption">body default</Text>
+        <Text>The quick brown fox jumps over the lazy dog.</Text>
+      </Stack>
+      <Stack spacing={3}>
+        <Text variant="caption">headings</Text>
+        {headingSizes.map(([size, px, face]) => (
+          <Heading key={size} size={size}>
+            {size} {px} {face}
+          </Heading>
+        ))}
+      </Stack>
+      <Stack spacing={2}>
+        <Text variant="caption">text styles</Text>
+        {textVariants.map((variant) => (
+          <Text key={variant} variant={variant}>
+            {variant}
+          </Text>
+        ))}
+      </Stack>
       <Stack spacing={2}>
         <Text fontSize="sm" color="muted-foreground">
           weights

@@ -12,6 +12,8 @@ import card from './components/card';
 import code from './components/code';
 import divider from './components/divider';
 import drawer from './components/drawer';
+import editable from './components/editable';
+import heading from './components/heading';
 import menu from './components/menu';
 import modal from './components/modal';
 import popover from './components/popover';
@@ -24,12 +26,15 @@ import formError from './components/formError';
 import formLabel from './components/formLabel';
 import input from './components/input';
 import link from './components/link';
+import list from './components/list';
+import mark from './components/mark';
 import numberInput from './components/numberInput';
 import pinInput from './components/pinInput';
 import progress from './components/progress';
 import radio from './components/radio';
 import select from './components/select';
 import skeleton from './components/skeleton';
+import skipLink from './components/skipLink';
 import spinner from './components/spinner';
 import slider from './components/slider';
 import stat from './components/stat';
@@ -38,9 +43,11 @@ import switchTheme from './components/switch';
 import table from './components/table';
 import tabs from './components/tabs';
 import tag from './components/tag';
+import text from './components/text';
 import textarea from './components/textarea';
 import { colors } from './foundations/colors';
 import { fonts } from './foundations/fonts';
+import { textStyles } from './foundations/textStyles';
 import { fontWeights } from './foundations/fontWeights';
 import { radii } from './foundations/radii';
 import { sizes } from './foundations/sizes';
@@ -60,6 +67,7 @@ export const theme = extendTheme(
     semanticTokens,
     fonts,
     fontWeights,
+    textStyles,
     radii,
     sizes,
     shadows,
@@ -75,6 +83,8 @@ export const theme = extendTheme(
       Code: code,
       Divider: divider,
       Drawer: drawer,
+      Editable: editable,
+      Heading: heading,
       Menu: menu,
       Modal: modal,
       Popover: popover,
@@ -87,12 +97,15 @@ export const theme = extendTheme(
       FormLabel: formLabel,
       Input: input,
       Link: link,
+      List: list,
+      Mark: mark,
       NumberInput: numberInput,
       PinInput: pinInput,
       Progress: progress,
       Radio: radio,
       Select: select,
       Skeleton: skeleton,
+      SkipLink: skipLink,
       Spinner: spinner,
       Slider: slider,
       Stat: stat,
@@ -101,6 +114,7 @@ export const theme = extendTheme(
       Table: table,
       Tabs: tabs,
       Tag: tag,
+      Text: text,
       Textarea: textarea,
     },
   },

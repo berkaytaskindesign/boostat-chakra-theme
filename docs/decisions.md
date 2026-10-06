@@ -60,3 +60,11 @@ The spinner is a 1.5px muted ring at 12, 16, 20, 24, and 32px. A loading button 
 
 Skeletons shimmer on accent with a primary highlight at 10%, 1.5s linear. Chakra applies its fade after the theme styles, so the shimmer lives in the global styles, scoped to `.chakra-skeleton:not([data-loaded])`. This Chakra version keeps that class on loaded content and does not set `data-loaded`, so the Skeleton wrappers set the attribute when `isLoaded` is true. Reduced motion leaves a static accent.
 
+## Typography
+
+Body text is 14px (`fontSize: sm`, line height 1.5) on the global body. `Text` has no base size or color, so it inherits from a Button, a Stat number, or a table cell. Sizes are opt-in variants (`body`, `body-lg`, `caption`, `label`, `muted`) that point at `textStyles` with `{ textStyle: '<name>' }` instead of copying the values.
+
+`fonts.heading` is the display serif, the same face as `fonts.serif`. Headings below 20px (`xs` 14, `sm` 16) use the sans. From `md` up (20, 24, 30, 36, 48, 60px) they use the serif. The scale is fixed pixels, not Chakra’s responsive arrays. The default heading size is `lg` (24px). There is no custom letter spacing.
+
+Lists use outside markers in muted-foreground, with 8px between items. Outside keeps Chakra’s `UnorderedList` and `OrderedList` from double-indenting: those components add `marginStart: 1em` as a prop. Highlight marks are secondary on foreground. Editable preview and input share one box (inherit size, 8px by 4px) and the input uses the shared field border. The skip link stays hidden until keyboard focus, then sits 16px from the top start as a square bordered chip with the offset ring.
+

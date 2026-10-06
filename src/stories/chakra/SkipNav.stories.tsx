@@ -13,7 +13,7 @@ export const Default: Story = {
   render: () => (
     <>
       <SkipNavLink>Skip to content</SkipNavLink>
-      <Text mb={4}>Tab to focus the skip link, which stays off-screen until focused.</Text>
+      <Text mb={4}>Press Tab to reveal the skip link. It stays off-screen until it is focused.</Text>
       <SkipNavContent />
       <Text>Page content</Text>
     </>

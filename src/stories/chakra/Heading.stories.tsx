@@ -1,5 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Heading, Stack } from '@chakra-ui/react';
+import { Heading, Stack, Text } from '@chakra-ui/react';
+
+const sizes = [
+  ['xs', 'sans'],
+  ['sm', 'sans'],
+  ['md', 'serif'],
+  ['lg', 'serif'],
+  ['xl', 'serif'],
+  ['2xl', 'serif'],
+  ['3xl', 'serif'],
+  ['4xl', 'serif'],
+] as const;
 
 const meta = {
   title: 'Chakra v2/Typography/Heading',
@@ -11,18 +22,18 @@ type Story = StoryObj<typeof meta>;
 
 export const Sizes: Story = {
   render: () => (
-    <Stack>
-      <Heading as="h1" size="2xl">
-        Heading 2xl
-      </Heading>
-      <Heading as="h2" size="xl">
-        Heading xl
-      </Heading>
-      <Heading as="h3" size="lg">
-        Heading lg
-      </Heading>
-      <Heading size="md">Heading md</Heading>
-      <Heading size="sm">Heading sm</Heading>
+    <Stack spacing={8}>
+      <Stack spacing={3}>
+        {sizes.map(([size, face]) => (
+          <Heading key={size} size={size}>
+            {size} {face}
+          </Heading>
+        ))}
+      </Stack>
+      <Stack spacing={1}>
+        <Heading size="lg">Invoices</Heading>
+        <Text variant="caption">March</Text>
+      </Stack>
     </Stack>
   ),
 };

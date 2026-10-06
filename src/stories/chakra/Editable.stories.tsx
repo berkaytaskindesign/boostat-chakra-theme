@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Editable, EditableInput, EditablePreview } from '@chakra-ui/react';
+import { Editable, EditableInput, EditablePreview, EditableTextarea, Stack } from '@chakra-ui/react';
 
 const meta = {
   title: 'Chakra v2/Form/Editable',
@@ -9,11 +9,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Fields: Story = {
   render: () => (
-    <Editable defaultValue="Click to edit">
-      <EditablePreview />
-      <EditableInput />
-    </Editable>
+    <Stack spacing={6} maxW="320px">
+      <Editable defaultValue="Click to edit">
+        <EditablePreview />
+        <EditableInput />
+      </Editable>
+      <Editable defaultValue="A longer note that wraps onto more than one line.">
+        <EditablePreview />
+        <EditableTextarea />
+      </Editable>
+    </Stack>
   ),
 };

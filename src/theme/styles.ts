@@ -6,6 +6,8 @@ const styles = {
     body: {
       bg: 'background',
       color: 'foreground',
+      fontSize: 'sm',
+      lineHeight: '1.5',
     },
     '.chakra-stat__group': {
       gap: '24px',

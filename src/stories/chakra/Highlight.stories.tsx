@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Highlight } from '@chakra-ui/react';
+import { Highlight, Stack, Text } from '@chakra-ui/react';
 
 const meta = {
   title: 'Chakra v2/Typography/Highlight',
@@ -9,10 +9,17 @@ const meta = {
 export default meta;
 type Story = StoryObj;
 
-export const Default: Story = {
+export const Words: Story = {
   render: () => (
-    <Highlight query={['Chakra', 'v2']} styles={{ px: '1', py: '1', rounded: 'full', bg: 'teal.100' }}>
-      Chakra UI v2 components
-    </Highlight>
+    <Stack spacing={4} maxW="360px">
+      <Text variant="body">
+        <Highlight query={['invoice', 'March']}>
+          The March invoice is ready to send to the customer.
+        </Highlight>
+      </Text>
+      <Text variant="muted">
+        <Highlight query="northwind">Northwind · Draft invoice · 1,240</Highlight>
+      </Text>
+    </Stack>
   ),
 };
