@@ -1,7 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { HStack, Tag, TagLabel } from '@chakra-ui/react';
+import { HStack, Icon, Stack, Tag, TagLabel } from '@chakra-ui/react';
 
 import { TagCloseButton } from '../../components';
+import { Icons } from '../../icons';
+
+const variants = ['subtle', 'solid', 'outline'] as const;
+const sizes = ['sm', 'md', 'lg'] as const;
 
 const meta = {
   title: 'Chakra v2/Data display/Tag',
@@ -11,17 +15,35 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Variants: Story = {
+export const VariantsAndSizes: Story = {
   render: () => (
-    <HStack>
-      <Tag>Gray</Tag>
-      <Tag colorScheme="teal">Teal</Tag>
-      <Tag colorScheme="blue" variant="solid">
-        <TagLabel>Solid</TagLabel>
-        <TagCloseButton />
+    <Stack spacing={4} align="start">
+      {variants.map((variant) => (
+        <HStack key={variant} spacing={3}>
+          {sizes.map((size) => (
+            <Tag key={size} variant={variant} size={size}>
+              <TagLabel>
+                {variant} {size}
+              </TagLabel>
+            </Tag>
+          ))}
+        </HStack>
+      ))}
+    </Stack>
+  ),
+};
+
+export const WithIconAndClose: Story = {
+  render: () => (
+    <HStack spacing={3}>
+      <Tag>
+        <Icon as={Icons.Tag} boxSize="icon-sm" marginEnd="4px" aria-hidden />
+        <TagLabel>Design</TagLabel>
+        <TagCloseButton aria-label="Remove Design" />
       </Tag>
-      <Tag colorScheme="red" variant="outline">
-        Outline
+      <Tag variant="outline" size="lg">
+        <Icon as={Icons.Add} boxSize="icon-sm" marginEnd="4px" aria-hidden />
+        <TagLabel>Add label</TagLabel>
       </Tag>
     </HStack>
   ),

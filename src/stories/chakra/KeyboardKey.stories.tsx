@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Kbd, Text } from '@chakra-ui/react';
+import { HStack, Kbd, Stack, Text } from '@chakra-ui/react';
 
 const meta = {
   title: 'Chakra v2/Data display/Keyboard Key',
@@ -9,10 +9,21 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Keys: Story = {
   render: () => (
-    <Text>
-      <Kbd>shift</Kbd> + <Kbd>H</Kbd>
-    </Text>
+    <Stack spacing={4} align="start">
+      <HStack spacing={2}>
+        <Kbd>⌘</Kbd>
+        <Text>+</Text>
+        <Kbd>K</Kbd>
+      </HStack>
+      <HStack spacing={2}>
+        <Kbd>Ctrl</Kbd>
+        <Text>+</Text>
+        <Kbd>Shift</Kbd>
+        <Text>+</Text>
+        <Kbd>P</Kbd>
+      </HStack>
+    </Stack>
   ),
 };

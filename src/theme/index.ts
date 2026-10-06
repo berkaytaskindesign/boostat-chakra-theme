@@ -2,7 +2,11 @@ import '@fontsource/hedvig-letters-sans/latin-400.css';
 import '@fontsource/hedvig-letters-serif/latin-400.css';
 import { extendTheme, withDefaultColorScheme, type ThemeConfig } from '@chakra-ui/react';
 
+import avatar from './components/avatar';
+import badge from './components/badge';
 import button from './components/button';
+import code from './components/code';
+import kbd from './components/kbd';
 import checkbox from './components/checkbox';
 import closeButton from './components/closeButton';
 import form from './components/form';
@@ -16,6 +20,7 @@ import radio from './components/radio';
 import select from './components/select';
 import slider from './components/slider';
 import switchTheme from './components/switch';
+import tag from './components/tag';
 import textarea from './components/textarea';
 import { colors } from './foundations/colors';
 import { fonts } from './foundations/fonts';
@@ -43,7 +48,11 @@ export const theme = extendTheme(
     shadows,
     styles,
     components: {
+      Avatar: avatar,
+      Badge: badge,
       Button: button,
+      Code: code,
+      Kbd: kbd,
       Checkbox: checkbox,
       CloseButton: closeButton,
       Form: form,
@@ -57,6 +66,7 @@ export const theme = extendTheme(
       Select: select,
       Slider: slider,
       Switch: switchTheme,
+      Tag: tag,
       Textarea: textarea,
     },
   },

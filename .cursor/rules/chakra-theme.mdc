@@ -9,12 +9,13 @@ alwaysApply: true
 - Theme lives in `src/theme/` following Chakra's recommended structure: `index.ts`, `styles.ts`, `foundations/`, `components/` (one file per component).
 - Visual reference is Midday: `reference/midday/packages/ui`. Read `src/globals.css`, `tailwind.config.ts` and the matching component file before styling a Chakra component.
 - Colors go in `semanticTokens` with light and `_dark` values. No hardcoded hex values or Chakra palette colors (`gray.800` etc.) in component files.
-- Midday style: monochrome, square-cornered buttons (radius 0), pills only for badges, tags and avatars, Hedvig Letters Sans/Serif, subtle focus ring, red only for destructive.
+- Midday style: monochrome, square-cornered buttons (radius 0), Hedvig Letters Sans/Serif, subtle focus ring, red only for destructive.
 - Max font weight is 400 (Hedvig has a single weight). Use size and color for hierarchy, never bold.
 - Headings use Hedvig Letters Serif. Body, UI, and mono stay Hedvig Letters Sans.
 - Radii scale is all zero; use full only for avatar/switch/radio/pills and subtle only for modal/drawer. Slider track and thumb stay square.
 - Selection controls use Midday’s single size: checkbox and radio 16px, switch 44×24, slider track 8px, thumb 20px and square. Do not add sm/lg sizes or a round slider thumb.
 - Icons come from `src/icons` (`Icons.Name`), IBM Carbon glyphs from `@carbon/icons-react`, via Chakra `<Icon>` with `icon-sm`/`icon-md`/`icon-lg` sizes. Import icon libraries only in `src/icons`. Never use Chakra's built-in icons or `@chakra-ui/icons`. Import CloseButton, ModalCloseButton, DrawerCloseButton, PopoverCloseButton, Select, Checkbox, NumberIncrementStepper, NumberDecrementStepper, AccordionIcon, AlertIcon, FormErrorIcon, Avatar, TagCloseButton, MenuItemOption, StepIcon, and useToast from `src/components`.
+- Labels (Badge, Tag, Code, Kbd) are square, 12px, fontWeight normal, never uppercase; default look is bg accent with muted-foreground text. Avatars are round by default with a square variant for companies/logos; no per-name colors.
 - Interaction states: hover = 90% bg via color-mix, active = 80%, disabled = opacity 0.5 with no hover/active. Ghost/outline hover uses accent.
 - Field focus (inputs, selects, textareas, and future form controls): border color changes to focus-border, no box shadow, no layout shift. Buttons keep the offset ring.
 - Small controls (checkbox, radio, switch, slider thumb) use the offset outline ring for focus, like buttons. Fields use the border change.
