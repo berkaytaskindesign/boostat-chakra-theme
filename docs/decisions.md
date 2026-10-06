@@ -46,3 +46,7 @@ Left and right drawers float: from the `md` breakpoint they sit 16px in from the
 
 The tooltip is the classic inverted one (foreground on background), deliberately not Midday’s light tooltip. Modal widths are 512, 576, 720, and 900px, plus full. Drawer widths are 384, 520, and 640px, plus full. AlertDialog uses the Modal theme and defaults to the small size through a wrapper in `src/components`.
 
+## Navigation
+
+Tabs default to Midday’s segmented control: an accent bar with the active tab on `background`. `line` is a 1px underline. There is one tab size. `soft-rounded` and `solid-rounded` use that same square segmented control. Breadcrumb and Stepper have no Midday reference and follow the system. The breadcrumb separator is a Carbon chevron from a wrapper in `src/components`, and breadcrumb links are not underlined at rest. Stepper indicators are square and 24px. Upcoming step titles stay full color.
+

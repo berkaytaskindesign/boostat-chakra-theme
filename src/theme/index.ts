@@ -5,6 +5,7 @@ import { extendTheme, withDefaultColorScheme, type ThemeConfig } from '@chakra-u
 import accordion from './components/accordion';
 import avatar from './components/avatar';
 import badge from './components/badge';
+import breadcrumb from './components/breadcrumb';
 import button from './components/button';
 import card from './components/card';
 import code from './components/code';
@@ -28,8 +29,10 @@ import radio from './components/radio';
 import select from './components/select';
 import slider from './components/slider';
 import stat from './components/stat';
+import stepper from './components/stepper';
 import switchTheme from './components/switch';
 import table from './components/table';
+import tabs from './components/tabs';
 import tag from './components/tag';
 import textarea from './components/textarea';
 import { colors } from './foundations/colors';
@@ -61,6 +64,7 @@ export const theme = extendTheme(
       Accordion: accordion,
       Avatar: avatar,
       Badge: badge,
+      Breadcrumb: breadcrumb,
       Button: button,
       Card: card,
       Code: code,
@@ -84,8 +88,10 @@ export const theme = extendTheme(
       Select: select,
       Slider: slider,
       Stat: stat,
+      Stepper: stepper,
       Switch: switchTheme,
       Table: table,
+      Tabs: tabs,
       Tag: tag,
       Textarea: textarea,
     },

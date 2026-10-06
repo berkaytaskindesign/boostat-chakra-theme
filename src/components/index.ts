@@ -4,7 +4,7 @@ export {
   ChakraBaseProvider, ChakraProvider, Accordion, AccordionButton, useAccordionStyles, AccordionItem, AccordionPanel, AccordionProvider,
   useAccordion, useAccordionContext, useAccordionItem, useAccordionItemState, Alert, useAlertContext, useAlertStyles, AlertDescription,
   AlertTitle, AspectRatio, AvatarBadge, useAvatarStyles, AvatarGroup, GenericAvatarIcon, Badge, Box,
-  Square, Circle, Breadcrumb, useBreadcrumbStyles, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, Button,
+  Square, Circle, useBreadcrumbStyles, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, Button,
   ButtonGroup, IconButton, ButtonSpinner, useButtonGroup, Card, CardBody, useCardStyles, CardFooter,
   CardHeader, AbsoluteCenter, Center, CheckboxGroup, CheckboxIcon, useCheckbox, useCheckboxGroup, Code,
   ColorModeProvider, DarkMode, LightMode, cookieStorageManager, cookieStorageManagerSSR, createCookieStorageManager, createLocalStorageManager, localStorageManager,
@@ -74,5 +74,6 @@ export { MenuItemOption } from './menuItemOption';
 export { StatArrow } from './statArrow';
 export { AlertDialog } from './alertDialog';
 export { Drawer } from './drawer';
+export { Breadcrumb } from './breadcrumb';
 export { StepIcon } from './stepIcon';
 export { useToast } from './useToast';
