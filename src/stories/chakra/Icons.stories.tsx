@@ -39,48 +39,49 @@ function IconGallery() {
 
   return (
     <Stack spacing={8}>
-      <HStack justify="space-between" align="center">
-        <HStack spacing={4}>
-          <HStack spacing={0} role="radiogroup" aria-label="Icon size">
-            {sizes.map((option) => {
-              const selected = size === option.token;
-              return (
-                <Button
-                  key={option.id}
-                  size="sm"
-                  variant={selected ? 'solid' : 'outline'}
-                  aria-checked={selected}
-                  role="radio"
-                  onClick={() => setSize(option.token)}
-                >
-                  {option.id}
-                </Button>
-              );
-            })}
+      <Stack spacing={3}>
+        <Input
+          placeholder="Search icons"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          maxW="xs"
+          aria-label="Search icons"
+        />
+        <HStack justify="space-between" align="center">
+          <HStack spacing={4}>
+            <HStack spacing={0} role="radiogroup" aria-label="Icon size">
+              {sizes.map((option) => {
+                const selected = size === option.token;
+                return (
+                  <Button
+                    key={option.id}
+                    size="sm"
+                    variant={selected ? 'solid' : 'outline'}
+                    aria-checked={selected}
+                    role="radio"
+                    onClick={() => setSize(option.token)}
+                  >
+                    {option.id}
+                  </Button>
+                );
+              })}
+            </HStack>
+            <HStack spacing={2}>
+              <Text as="label" htmlFor="carbon-names" fontSize="sm" mb={0}>
+                Carbon names
+              </Text>
+              <Switch
+                id="carbon-names"
+                isChecked={showCarbonNames}
+                onChange={(event) => setShowCarbonNames(event.target.checked)}
+              />
+            </HStack>
           </HStack>
-          <HStack spacing={2}>
-            <Text as="label" htmlFor="carbon-names" fontSize="sm" mb={0}>
-              Carbon names
-            </Text>
-            <Switch
-              id="carbon-names"
-              isChecked={showCarbonNames}
-              onChange={(event) => setShowCarbonNames(event.target.checked)}
-            />
-          </HStack>
-          <Input
-            placeholder="Search icons"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            size="sm"
-            w="140px"
-            aria-label="Search icons"
-          />
+          <Link href={carbonLibrary} isExternal>
+            IBM Carbon icons
+          </Link>
         </HStack>
-        <Link href={carbonLibrary} isExternal>
-          IBM Carbon icons
-        </Link>
-      </HStack>
+      </Stack>
       <SimpleGrid columns={[2, 4, 6]} spacing={4}>
         {visible.map((name) => (
           <Stack
