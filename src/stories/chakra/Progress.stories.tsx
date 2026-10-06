@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Progress, Stack } from '@chakra-ui/react';
+import { Progress, ProgressLabel, Stack, Text } from '@chakra-ui/react';
+
+const sizes = ['xs', 'sm', 'md', 'lg'] as const;
 
 const meta = {
   title: 'Chakra v2/Feedback/Progress',
@@ -9,12 +11,23 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Sizes: Story = {
   render: () => (
-    <Stack>
-      <Progress value={40} />
+    <Stack spacing={4}>
+      {sizes.map((size) => (
+        <Stack key={size} spacing={1}>
+          <Text fontSize="xs" color="muted-foreground">
+            {size}
+          </Text>
+          <Progress size={size} value={40} />
+        </Stack>
+      ))}
+      <Progress value={0} />
+      <Progress value={100}>
+        <ProgressLabel>100%</ProgressLabel>
+      </Progress>
       <Progress value={60} hasStripe />
-      <Progress size="xs" isIndeterminate />
+      <Progress isIndeterminate />
     </Stack>
   ),
 };

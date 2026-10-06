@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import { forwardRef, type ComponentProps } from 'react';
 import { Breadcrumb as ChakraBreadcrumb } from '@chakra-ui/react';
 
 import { Icons } from '../icons';
@@ -8,6 +8,9 @@ type Props = ComponentProps<typeof ChakraBreadcrumb>;
 
 const chevron = <DecorativeIcon as={Icons.ChevronRight} boxSize="icon-sm" />;
 
-export function Breadcrumb({ separator = chevron, ...props }: Props) {
-  return <ChakraBreadcrumb separator={separator} {...props} />;
-}
+export const Breadcrumb = forwardRef<HTMLElement, Props>(function Breadcrumb(
+  { separator = chevron, ...props },
+  ref,
+) {
+  return <ChakraBreadcrumb ref={ref} separator={separator} {...props} />;
+});

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { HStack, Spinner } from '@chakra-ui/react';
+import { Button, HStack, Spinner, Stack } from '@chakra-ui/react';
 
 const meta = {
   title: 'Chakra v2/Feedback/Spinner',
@@ -11,12 +11,20 @@ type Story = StoryObj<typeof meta>;
 
 export const Sizes: Story = {
   render: () => (
-    <HStack>
-      <Spinner size="xs" />
-      <Spinner size="sm" />
-      <Spinner />
-      <Spinner size="lg" />
-      <Spinner size="xl" />
-    </HStack>
+    <Stack spacing={6}>
+      <HStack spacing={4}>
+        <Spinner size="xs" />
+        <Spinner size="sm" />
+        <Spinner />
+        <Spinner size="lg" />
+        <Spinner size="xl" />
+      </HStack>
+      <HStack spacing={3}>
+        <Button isLoading>Saving</Button>
+        <Button isLoading variant="outline">
+          Saving
+        </Button>
+      </HStack>
+    </Stack>
   ),
 };

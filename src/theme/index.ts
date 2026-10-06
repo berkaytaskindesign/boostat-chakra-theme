@@ -3,6 +3,7 @@ import '@fontsource/hedvig-letters-serif/latin-400.css';
 import { extendTheme, withDefaultColorScheme, type ThemeConfig } from '@chakra-ui/react';
 
 import accordion from './components/accordion';
+import alert from './components/alert';
 import avatar from './components/avatar';
 import badge from './components/badge';
 import breadcrumb from './components/breadcrumb';
@@ -25,8 +26,11 @@ import input from './components/input';
 import link from './components/link';
 import numberInput from './components/numberInput';
 import pinInput from './components/pinInput';
+import progress from './components/progress';
 import radio from './components/radio';
 import select from './components/select';
+import skeleton from './components/skeleton';
+import spinner from './components/spinner';
 import slider from './components/slider';
 import stat from './components/stat';
 import stepper from './components/stepper';
@@ -62,6 +66,7 @@ export const theme = extendTheme(
     styles,
     components: {
       Accordion: accordion,
+      Alert: alert,
       Avatar: avatar,
       Badge: badge,
       Breadcrumb: breadcrumb,
@@ -84,8 +89,11 @@ export const theme = extendTheme(
       Link: link,
       NumberInput: numberInput,
       PinInput: pinInput,
+      Progress: progress,
       Radio: radio,
       Select: select,
+      Skeleton: skeleton,
+      Spinner: spinner,
       Slider: slider,
       Stat: stat,
       Stepper: stepper,

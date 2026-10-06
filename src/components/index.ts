@@ -27,9 +27,9 @@ export {
   useModal, useModalManager, NumberInput, NumberInputField, NumberInputStepper, useNumberInputStyles, useNumberInput, PinInput,
   PinInputField, PinInputDescendantsProvider, PinInputProvider, usePinInput, usePinInputContext, usePinInputField, Popover, usePopover,
   PopoverAnchor, PopoverArrow, PopoverBody, PopoverContent, PopoverFooter, PopoverHeader, PopoverTrigger, usePopoverContext,
-  usePopoverStyles, usePopper, popperCSSVars, PortalManager, usePortalManager, Portal, CircularProgress, Progress,
+  usePopoverStyles, usePopper, popperCSSVars, PortalManager, usePortalManager, Portal, Progress,
   useProgressStyles, ProgressLabel, CircularProgressLabel, Radio, useRadio, useRadioGroup, RadioGroup, useRadioGroupContext,
-  SelectField, Skeleton, SkeletonText, SkeletonCircle, SkipNavContent, SkipNavLink, RangeSlider, RangeSliderFilledTrack,
+  SelectField, SkipNavContent, SkipNavLink, RangeSlider, RangeSliderFilledTrack,
   RangeSliderMark, RangeSliderProvider, RangeSliderThumb, RangeSliderTrack, useRangeSliderContext, useRangeSliderStyles, Slider, SliderFilledTrack,
   SliderMark, SliderProvider, SliderThumb, SliderTrack, useSliderContext, useSliderStyles, useRangeSlider, useSlider,
   Spacer, Spinner, HStack, Stack, StackDivider, VStack, Stat, useStatStyles,
@@ -77,3 +77,5 @@ export { Drawer } from './drawer';
 export { Breadcrumb } from './breadcrumb';
 export { StepIcon } from './stepIcon';
 export { useToast } from './useToast';
+export { CircularProgress } from './circularProgress';
+export { Skeleton, SkeletonCircle, SkeletonText } from './skeleton';

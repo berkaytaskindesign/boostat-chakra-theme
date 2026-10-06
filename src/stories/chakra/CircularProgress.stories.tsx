@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CircularProgress, HStack } from '@chakra-ui/react';
+import { CircularProgressLabel, HStack } from '@chakra-ui/react';
+
+import { CircularProgress } from '../../components';
 
 const meta = {
   title: 'Chakra v2/Feedback/Circular Progress',
@@ -9,11 +11,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Values: Story = {
   render: () => (
-    <HStack>
-      <CircularProgress value={40} />
-      <CircularProgress value={80} color="green.400" />
+    <HStack spacing={6}>
+      <CircularProgress value={0} />
+      <CircularProgress value={40}>
+        <CircularProgressLabel fontSize="xs">40%</CircularProgressLabel>
+      </CircularProgress>
+      <CircularProgress value={100}>
+        <CircularProgressLabel fontSize="xs">100%</CircularProgressLabel>
+      </CircularProgress>
       <CircularProgress isIndeterminate />
     </HStack>
   ),

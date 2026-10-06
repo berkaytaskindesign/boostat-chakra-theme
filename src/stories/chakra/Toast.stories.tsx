@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button } from '@chakra-ui/react';
+import { Button, HStack, Stack } from '@chakra-ui/react';
 
 import { useToast } from '../../components';
+
+const statuses = ['info', 'success', 'warning', 'error', 'loading'] as const;
 
 const meta = {
   title: 'Chakra v2/Feedback/Toast',
@@ -15,22 +17,42 @@ function ToastDemo() {
   const toast = useToast();
 
   return (
-    <Button
-      onClick={() =>
-        toast({
-          title: 'Account created.',
-          description: 'We created your account.',
-          status: 'success',
-          duration: 5000,
-          isClosable: true,
-        })
-      }
-    >
-      Show toast
-    </Button>
+    <Stack spacing={3}>
+      {statuses.map((status) => (
+        <HStack key={status} spacing={3}>
+          <Button
+            variant="outline"
+            onClick={() =>
+              toast({
+                title: status,
+                status,
+                isClosable: true,
+                duration: 6000,
+              })
+            }
+          >
+            {status}
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() =>
+              toast({
+                title: status,
+                description: 'A little more detail.',
+                status,
+                isClosable: true,
+                duration: 6000,
+              })
+            }
+          >
+            {status} with description
+          </Button>
+        </HStack>
+      ))}
+    </Stack>
   );
 }
 
-export const Default: Story = {
+export const Statuses: Story = {
   render: () => <ToastDemo />,
 };

@@ -50,3 +50,13 @@ The tooltip is the classic inverted one (foreground on background), deliberately
 
 Tabs default to Midday’s segmented control: an accent bar with the active tab on `background`. `line` is a 1px underline. There is one tab size. `soft-rounded` and `solid-rounded` use that same square segmented control. Breadcrumb and Stepper have no Midday reference and follow the system. The breadcrumb separator is a Carbon chevron from a wrapper in `src/components`, and breadcrumb links are not underlined at rest. Stepper indicators are square and 24px. Upcoming step titles stay full color.
 
+## Feedback
+
+Alerts are monochrome. Only error is coloured: a destructive border and `destructive-text` on the title, description, and icon. Info, success, warning, and loading stay foreground and are told apart by the Carbon icon in `AlertIcon`. Subtle is the default panel (background, 1px border, 16px padding). Solid is primary on primary-foreground, and a solid error alert is a destructive fill. Left-accent and top-accent add a 2px foreground bar, destructive on error.
+
+Chakra renders toasts with the Alert solid variant, which would make every toast a black primary panel. `useToast` renders the toast variant instead: a card panel, 1px border, and the overlay shadow. An error toast stays on that card, with a destructive border and `destructive-text`. Toasts sit bottom-left from the `md` breakpoint and at the top below it, with a max width of 420px.
+
+The spinner is a 1.5px muted ring at 12, 16, 20, 24, and 32px. A loading button keeps `currentColor`. Progress is a square bar: secondary track, primary fill, heights 4, 8, 16, and 24px, with stripes of primary-foreground at 15%. CircularProgress has no Chakra theme and defaults to a hardcoded blue, so a wrapper in `src/components` defaults the stroke to primary, the track to secondary, and the thickness to 8px.
+
+Skeletons shimmer on accent with a primary highlight at 10%, 1.5s linear. Chakra applies its fade after the theme styles, so the shimmer lives in the global styles, scoped to `.chakra-skeleton:not([data-loaded])`. This Chakra version keeps that class on loaded content and does not set `data-loaded`, so the Skeleton wrappers set the attribute when `isLoaded` is true. Reduced motion leaves a static accent.
+

@@ -32,7 +32,7 @@ export const AlertIcon = forwardRef<HTMLElement, Props>(function AlertIcon(
   const glyph =
     children ??
     (status === 'loading' ? (
-      <Spinner aria-hidden="true" h="100%" w="100%" />
+      <Spinner aria-hidden="true" h="100%" w="100%" color="currentColor" />
     ) : (
       <DecorativeIcon as={statusIcons[status as Exclude<AlertStatus, 'loading'>] ?? Icons.Info} boxSize="full" />
     ));

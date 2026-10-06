@@ -3,6 +3,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
+  useBreakpointValue,
   useToast as useChakraToast,
   type UseToastOptions,
 } from '@chakra-ui/react';
@@ -15,17 +16,7 @@ type ToastRenderProps = UseToastOptions & {
   icon?: ReactNode;
 };
 
-function ToastView({
-  status,
-  variant = 'solid',
-  title,
-  description,
-  isClosable,
-  onClose,
-  icon,
-  id,
-  colorScheme,
-}: ToastRenderProps) {
+function ToastView({ status, title, description, isClosable, onClose, icon, id }: ToastRenderProps) {
   const ids = id
     ? { root: `toast-${id}`, title: `toast-${id}-title`, description: `toast-${id}-description` }
     : undefined;
@@ -34,15 +25,11 @@ function ToastView({
     <Alert
       addRole={false}
       status={status}
-      variant={variant}
+      variant="toast"
       id={ids?.root}
       alignItems="start"
-      borderRadius="md"
-      boxShadow="lg"
-      paddingEnd={8}
       textAlign="start"
       width="auto"
-      colorScheme={colorScheme}
     >
       <AlertIcon>{icon}</AlertIcon>
       <div style={{ flex: 1, maxWidth: '100%' }}>
@@ -61,8 +48,12 @@ function ToastView({
 }
 
 export function useToast(options?: UseToastOptions) {
+  const position = useBreakpointValue({ base: 'top' as const, md: 'bottom-left' as const });
+
   return useChakraToast({
     ...options,
+    position: options?.position ?? position ?? 'top',
+    containerStyle: { maxWidth: '420px', ...options?.containerStyle },
     render: options?.render ?? ((props) => <ToastView {...props} />),
   });
 }
